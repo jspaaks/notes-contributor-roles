@@ -42,7 +42,7 @@ CASRAI is short for Consortium for Advancing Standards in Research Administratio
 - [Zenodo metadata](#Zenodo-metadata)
 - [SCoRO](#SCoRO)
 - [Habermann](#Habermann)
-- [sdruskat.net](#sdruskat.net)
+- [sdruskat.net](#sdruskatnet)
 
 ### CRediT
 
