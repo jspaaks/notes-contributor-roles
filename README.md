@@ -529,7 +529,7 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
     13. `Writing – original draft` # note: emdash why
     14. `Writing – review & editing` # note: emdash why
 
-    These terms are the same as the CRediT terms.
+    These terms are (conceptually) the same as the CRediT terms.
 
 ## `roles` schema
 
