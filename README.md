@@ -661,6 +661,7 @@ The advantage of including an optional description is we can see if people need 
 1. crossref has its own contributor roles schema: https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/contributors/
 1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
 1. contributor atrtriution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html
+1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
 
 ## Preliminary insights
 
