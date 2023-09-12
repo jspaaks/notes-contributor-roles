@@ -43,6 +43,8 @@ CASRAI is short for Consortium for Advancing Standards in Research Administratio
 - [SCoRO](#SCoRO)
 - [Habermann](#Habermann)
 - [sdruskat.net](#sdruskatnet)
+- [schema.org / codemeta](#schemaorgcodemeta)
+- [Allcontributors](#Allcontributors)
 
 ### CRediT
 
@@ -449,6 +451,61 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
 1. `Documentation`
 1. `Conceptualisation`
 
+### schema.org / codemeta
+
+Probably fixable with Role "decorator" irrespective of what CFF ends up using: https://github.com/citation-file-format/cffconvert/issues/366
+
+Note that Codemeta implicitly defines a list of `roleName` to be used within the `Role` context:
+
+1. `Design`
+1. `Architecture`
+1. `Debugging`
+1. `Maintenance`
+1. `Coding`
+1. `Documentation`
+1. `Testing`
+1. `Support`
+1. `Management`
+
+### Allcontributors
+
+- Big pro: this is based on actual experience using it in many projects
+- Open question: do these keys sufficiently cover contributions as they are valued in academia?
+
+1. `audio`
+1. `a11y`
+1. `bug`
+1. `blog`
+1. `business`
+1. `code`
+1. `content`
+1. `data`
+1. `doc`
+1. `design`
+1. `example`
+1. `eventOrganizing`
+1. `financial`
+1. `fundingFinding`
+1. `ideas`
+1. `infra`
+1. `maintenance`
+1. `mentoring`
+1. `platform`
+1. `plugin`
+1. `projectManagement`
+1. `promotion`
+1. `question`
+1. `research`
+1. `review`
+1. `security`
+1. `tool`
+1. `translation`
+1. `test`
+1. `tutorial`
+1. `talk`
+1. `userTesting`
+1. `video`
+
 ## JATS
 
 - JATS = Journal Article Tag Suite
@@ -531,9 +588,123 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
 
     These terms are (conceptually) the same as the CRediT terms.
 
-## `roles` schema
+## Two possible setups
 
-Some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But maybe if we do it like I wrote in the schema below, you can have an element from an enum, or a dict key with an explanation:
+|     | Allcontributors concept                                       | CFF == Allcontributors | CFF == sdruskat.net + `Other` + `Artwork`    |
+| --- | ---                                                           | ---                    | ---                                          |
+| 1.  | Audio: ~~Podcasts,~~ background music or sound effects        |  `audio`               | `artwork`                                    |
+| 2.  | Accessibility: Reporting or working on accessibility issues   |  `a11y`                | `other: accessibility`                       |
+| 3.  | Bug reports                                                   |  `bug`                 | `testing`                                    |
+| 4.  | Blogposts                                                     |  `blog`                | `outreach`                                   |
+| 5.  | Business Development: People who execute on the business end  |  `business`            | `funding`? or `other: business development`  |
+| 6.  | Code                                                          |  `code`                | `development`                                |
+| 7.  | Content: e.g. website copy, blog posts are separate           |  `content`             | `other: copywriting, editing`                |
+| 8.  | Data                                                          |  `data`                | `data`                                       |
+| 9.  | Documentation                                                 |  `doc`                 | `documentation`                              |
+| 10. | Design: logo/iconography/visual design/etc.                   |  `design`              | `artwork`                                    |
+| 11. | Examples                                                      |  `example`             | `documentation`                              |
+| 12. | Event Organizers                                              |  `eventOrganizing`     | `outreach`                                   |
+| 13. | Financial Support: for who provide financial support          |  `financial`           | `funding`                                    |
+| 14. | Funding/Grant Finders: People who help find financial support |  `fundingFinding`      | `funding`                                    |
+| 15. | Ideas & Planning                                              |  `ideas`               | `conceptualization`                          |
+| 16. | Infrastructure: Hosting, Build-Tools, etc.                    |  `infra`               | `infrastructure` fka `resources`             |
+| 17. | Maintenance: People who help in maintaining the repo          |  `maintenance`         | `development`                                |
+| 18. | Mentoring: People who mentor new contributors                 |  `mentoring`           | `supervision`?                               |
+| 19. | Packaging: Porting to support a new platform                  |  `platform`            | `development`                                |
+| 20. | Plugin/utility libraries                                      |  `plugin`              | `development`                                |
+| 21. | Project Management                                            |  `projectManagement`   | `supervision`                                |
+| 22. | Promotion                                                     |  `promotion`           | `outreach`                                   |
+| 23. | Answering Questions in Issues, Stack Overflow, etc.           |  `question`            | `outreach`                                   |
+| 24. | Research: Literature review                                   |  `research`            | `conceptualization`? or `other: landscaping` |
+| 25. | Reviewed Pull Requests                                        |  `review`              | `development`                                |
+| 26. | Security: security threats, GDPR, Privacy, etc                |  `security`            | `other: security`                            |
+| 27. | Tools                                                         |  `tool`                | `development`?                               |
+| 28. | Translation                                                   |  `translation`         | `outreach`?                                  |
+| 29. | Tests                                                         |  `test`                | `testing`                                    |
+| 30. | Tutorials                                                     |  `tutorial`            | `outreach`                                   |
+| 31. | Talks                                                         |  `talk`                | `outreach`                                   |
+| 32. | User Testing                                                  |  `userTesting`         | `testing`                                    |
+| 33. | Videos                                                        |  `video`               | `artwork`                                    |
+
+Notes:
+
+1. I introduced 2 new categories in the sdruskat column:
+    1. `artwork`, this could be the target for `audio`, `video` and `design`
+    2. `other`, to differentiate from the omission case.
+1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project
+1. I crossed out podcasts as part of Allcontributors's definition of `audio`, IMO podcasts are `promotion`
+1. All categories from sdruskat.net are actually used as targets in the mapping
+1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms
+1. One could use the `allcontributors` bot to do its thing; `CONTRIBUTORS.md` would then be the single source of truth about contributors. Then, use a to-be-created tool to sync `CONTRIBUTORS.md` to `CITATION.cff`, maybe based on GitHub aliases? Insert `contributors[i].alias` in CFF using `CONTRIBUTORS.md` when alias is missing from CFF; Don't add names (unsolvable problem)
+
+### Conversion
+
+- Apalike: N/A
+- Bibtex: N/A
+- Codemeta 3.0: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
+- Endnote: N/A
+- Schema.org: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
+- RIS: N/A
+- Zenodo, CRediT: see below
+
+|     | from Allcontributors                        | to Zenodo                                          | to CRediT          |
+| --- | ---                                         | ---                                                | ---                |
+| 1.  | `audio`                                     |                                                    |                    |
+| 2.  | `a11y`                                      |                                                    |                    |
+| 3.  | `bug`                                       |                                                    |                    |
+| 4.  | `blog`                                      |                                                    |                    |
+| 5.  | `business`                                  |                                                    |                    |
+| 6.  | `code`                                      |                                                    |                    |
+| 7.  | `content`                                   |                                                    |                    |
+| 8.  | `data`                                      |                                                    |                    |
+| 9.  | `doc`                                       |                                                    |                    |
+| 10. | `design`                                    |                                                    |                    |
+| 11. | `example`                                   |                                                    |                    |
+| 12. | `eventOrganizing`                           |                                                    |                    |
+| 13. | `financial`                                 |                                                    |                    |
+| 14. | `fundingFinding`                            |                                                    |                    |
+| 15. | `ideas`                                     |                                                    |                    |
+| 16. | `infra`                                     |                                                    |                    |
+| 17. | `maintenance`                               |                                                    |                    |
+| 18. | `mentoring`                                 |                                                    |                    |
+| 19. | `platform`                                  |                                                    |                    |
+| 20. | `plugin`                                    |                                                    |                    |
+| 21. | `projectManagement`                         |                                                    |                    |
+| 22. | `promotion`                                 |                                                    |                    |
+| 23. | `question`                                  |                                                    |                    |
+| 24. | `research`                                  |                                                    |                    |
+| 25. | `review`                                    |                                                    |                    |
+| 26. | `security`                                  |                                                    |                    |
+| 27. | `tool`                                      |                                                    |                    |
+| 28. | `translation`                               |                                                    |                    |
+| 29. | `test`                                      |                                                    |                    |
+| 30. | `tutorial`                                  |                                                    |                    |
+| 31. | `talk`                                      |                                                    |                    |
+| 32. | `userTesting`                               |                                                    |                    |
+| 33. | `video`                                     |                                                    |                    |
+|     | `-----------------`                         | `------------------`                               | `------------`     |
+|     | **from sdruskat.net** + `Other` + `Artwork` | **to Zenodo**                                      | **to CRediT**      |
+| 1.  | `conceptualization`                         | <`Other`                                           |                    |
+| 2.  | `data`                                      | >`DataManager` >`DataCollector` >`DataCurator`     |                    |
+| 3.  | `development`                               | <`Other`                                           |                    |
+| 4.  | `documentation`                             | <`Other`                                           |                    |
+| 5.  | `funding`                                   | >`Sponsor`                                         |                    |
+| 6.  | `infrastructure`                            | >`HostingInstitution`                              |                    |
+| 7.  | `other`                                     | ==`Other`                                          |                    |
+| 8.  | `outreach`                                  | <`Other`                                           |                    |
+| 9.  | `supervision`                               | >`Supervisor`                                      |                    |
+| 10. | `testing`                                   | <`Other`                                           |                    |
+
+Notes:
+
+1. Zenodo schema terms can be safely ignored, whatever we come up with will most likely map to Zenodo's `Other` term regardless.
+
+
+### Preliminary `roles` schema
+
+This section describes how to update CFF's JSONSchema file for version 1.3.0. I wrote it for the enum from sdruskat.net + `other` + `artwork`, but it would conceptually be the same for any given enum.
+
+Additionally, some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But maybe if we do it like I wrote in the schema below, you can have an element from an enum, or a dict key with an explanation:
 
 ```json
 {
@@ -543,6 +714,7 @@ Some folks have advocated for having a free text field as CFF contributor role. 
         "role": {
             "type": "string",
             "enum": [
+                "artwork",
                 "conceptualization",
                 "data",
                 "development",
@@ -579,6 +751,16 @@ Some folks have advocated for having a free text field as CFF contributor role. 
                                 "additionalProperties": false,
                                 "minProperties": 1,
                                 "properties": {
+                                    "artwork": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "",
+                                        "examples": [
+                                            "audio artwork such as background music or sound effects",
+                                            "video artwork such as cutscenes",
+                                            "graphical design such as logo, iconography, visual design",
+                                            "animations"
+                                        ]
+                                    },
                                     "conceptualization": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Formulation of the idea and goals of the software, design of main features and functionalities",
@@ -705,7 +887,7 @@ roles:
 - supervision
 - conceptualization: description of conceptualization
     # "conceptualization" is a key in a dict
-    # should "conceptualization:" be valid (its value is empty string)?
+    # should "conceptualization:" be valid (i.e. when its value is empty string)?
 ```
 
 ```yaml
@@ -715,21 +897,28 @@ roles:
 - other: description of the other activity
 ```
 
+What's maybe a bit odd is that these 2 examples are the same:
+
+```yaml
+roles:
+  - conceptualization
+  - supervision: managing the little ones
+  - artwork: doodling
+```
+```yaml
+roles:
+  - conceptualization
+  - supervision: managing the little ones
+    artwork: doodling  # seemingly wrong to omit the dash
+```
+
 The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
 
 ## Open questions
 
 1. Is this maybe useful https://rollercoaster.shinyapps.io/tenzing/ (Tenzing)
 1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
-1. Possible ROADMAP
-    1. Many publishers already use (output / input) JATS (e.g. AGU, https://www.loc.gov)
-    1. Existing publishing systems have support for it (e.g. Janeway)
-    1. Current version of JATS is 1.3
-    1. JATS can make use of the CRediT taxonomy.
-    1. Current version of CRediT is 1.2
-    1. CRediT has a role `Software`.
-    1. So, if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
-    1. Do we need JATS4R as well as JATS? Preliminiary answer: No
+1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
 1. TODO: Look into mapping CRediT roles to Zenodo metadata roles
 1. crossref on youtube, homepage https://www.crossref.org/documentation/schema-library/metadata-deposit-schema-5-3-1/
 1. schema.org and codemeta have a set of roles as well, (how) can we promote compatibility with them?
@@ -737,7 +926,8 @@ The advantage of including an optional description is we can see if people need 
 1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
 1. contributor atrtriution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-
-## Preliminary insights
-
-1. Zenodo schema terms can be safely ignored, whatever we come up with will most likely map to Zenodo's `Other` term regardless.
+1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
+1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/
+1. MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
+1. All-contributors taxonomy: https://allcontributors.org/docs/en/emoji-key
+1. Look into defining a dict with one key for each term to avoid confusion about array of roles
