@@ -628,6 +628,7 @@ Note that Codemeta implicitly defines a list of `roleName` to be used within the
 
 Notes:
 
+1. I renamed `sdruskat.net:resources` to `sdruskat.net:infrastructure`
 1. I introduced 2 new categories in the sdruskat column:
     1. `artwork`, this could be the target for `audio`, `video` and `design`
     2. `other`, to differentiate from the omission case.
@@ -647,53 +648,53 @@ Notes:
 - RIS: N/A
 - Zenodo, CRediT: see below
 
-|     | from Allcontributors                        | to Zenodo                                          | to CRediT          |
-| --- | ---                                         | ---                                                | ---                |
-| 1.  | `audio`                                     |                                                    |                    |
-| 2.  | `a11y`                                      |                                                    |                    |
-| 3.  | `bug`                                       |                                                    |                    |
-| 4.  | `blog`                                      |                                                    |                    |
-| 5.  | `business`                                  |                                                    |                    |
-| 6.  | `code`                                      |                                                    |                    |
-| 7.  | `content`                                   |                                                    |                    |
-| 8.  | `data`                                      |                                                    |                    |
-| 9.  | `doc`                                       |                                                    |                    |
-| 10. | `design`                                    |                                                    |                    |
-| 11. | `example`                                   |                                                    |                    |
-| 12. | `eventOrganizing`                           |                                                    |                    |
-| 13. | `financial`                                 |                                                    |                    |
-| 14. | `fundingFinding`                            |                                                    |                    |
-| 15. | `ideas`                                     |                                                    |                    |
-| 16. | `infra`                                     |                                                    |                    |
-| 17. | `maintenance`                               |                                                    |                    |
-| 18. | `mentoring`                                 |                                                    |                    |
-| 19. | `platform`                                  |                                                    |                    |
-| 20. | `plugin`                                    |                                                    |                    |
-| 21. | `projectManagement`                         |                                                    |                    |
-| 22. | `promotion`                                 |                                                    |                    |
-| 23. | `question`                                  |                                                    |                    |
-| 24. | `research`                                  |                                                    |                    |
-| 25. | `review`                                    |                                                    |                    |
-| 26. | `security`                                  |                                                    |                    |
-| 27. | `tool`                                      |                                                    |                    |
-| 28. | `translation`                               |                                                    |                    |
-| 29. | `test`                                      |                                                    |                    |
-| 30. | `tutorial`                                  |                                                    |                    |
-| 31. | `talk`                                      |                                                    |                    |
-| 32. | `userTesting`                               |                                                    |                    |
-| 33. | `video`                                     |                                                    |                    |
-|     | `-----------------`                         | `------------------`                               | `------------`     |
-|     | **from sdruskat.net** + `Other` + `Artwork` | **to Zenodo**                                      | **to CRediT**      |
-| 1.  | `conceptualization`                         | <`Other`                                           |                    |
-| 2.  | `data`                                      | >`DataManager` >`DataCollector` >`DataCurator`     |                    |
-| 3.  | `development`                               | <`Other`                                           |                    |
-| 4.  | `documentation`                             | <`Other`                                           |                    |
-| 5.  | `funding`                                   | >`Sponsor`                                         |                    |
-| 6.  | `infrastructure`                            | >`HostingInstitution`                              |                    |
-| 7.  | `other`                                     | ==`Other`                                          |                    |
-| 8.  | `outreach`                                  | <`Other`                                           |                    |
-| 9.  | `supervision`                               | >`Supervisor`                                      |                    |
-| 10. | `testing`                                   | <`Other`                                           |                    |
+|     | from Allcontributors                        | to Zenodo                                          | to Codemeta        | to CRediT      |
+| --- | ---                                         | ---                                                | ---                | ---            |
+| 1.  | `audio`                                     |                                                    |                    |                |
+| 2.  | `a11y`                                      |                                                    |                    |                |
+| 3.  | `bug`                                       |                                                    |                    |                |
+| 4.  | `blog`                                      |                                                    |                    |                |
+| 5.  | `business`                                  |                                                    |                    |                |
+| 6.  | `code`                                      |                                                    |                    |                |
+| 7.  | `content`                                   |                                                    |                    |                |
+| 8.  | `data`                                      |                                                    |                    |                |
+| 9.  | `doc`                                       |                                                    |                    |                |
+| 10. | `design`                                    |                                                    |                    |                |
+| 11. | `example`                                   |                                                    |                    |                |
+| 12. | `eventOrganizing`                           |                                                    |                    |                |
+| 13. | `financial`                                 |                                                    |                    |                |
+| 14. | `fundingFinding`                            |                                                    |                    |                |
+| 15. | `ideas`                                     |                                                    |                    |                |
+| 16. | `infra`                                     |                                                    |                    |                |
+| 17. | `maintenance`                               |                                                    |                    |                |
+| 18. | `mentoring`                                 |                                                    |                    |                |
+| 19. | `platform`                                  |                                                    |                    |                |
+| 20. | `plugin`                                    |                                                    |                    |                |
+| 21. | `projectManagement`                         |                                                    |                    |                |
+| 22. | `promotion`                                 |                                                    |                    |                |
+| 23. | `question`                                  |                                                    |                    |                |
+| 24. | `research`                                  |                                                    |                    |                |
+| 25. | `review`                                    |                                                    |                    |                |
+| 26. | `security`                                  |                                                    |                    |                |
+| 27. | `tool`                                      |                                                    |                    |                |
+| 28. | `translation`                               |                                                    |                    |                |
+| 29. | `test`                                      |                                                    |                    |                |
+| 30. | `tutorial`                                  |                                                    |                    |                |
+| 31. | `talk`                                      |                                                    |                    |                |
+| 32. | `userTesting`                               |                                                    |                    |                |
+| 33. | `video`                                     |                                                    |                    |                |
+|     | `-----------------`                         | `------------------`                               | `------------`     | `------------` |
+|     | **from sdruskat.net** + `Other` + `Artwork` | **to Zenodo**                                      | **to Codemeta**    | **to CRediT**  |
+| 1.  | `conceptualization`                         | <`Other`                                           |                    |                |
+| 2.  | `data`                                      | >`DataManager` >`DataCollector` >`DataCurator`     |                    |                |
+| 3.  | `development`                               | <`Other`                                           |                    |                |
+| 4.  | `documentation`                             | <`Other`                                           |                    |                |
+| 5.  | `funding`                                   | >`Sponsor`                                         |                    |                |
+| 6.  | `infrastructure`                            | >`HostingInstitution`                              |                    |                |
+| 7.  | `other`                                     | ==`Other`                                          |                    |                |
+| 8.  | `outreach`                                  | <`Other`                                           |                    |                |
+| 9.  | `supervision`                               | >`Supervisor`                                      |                    |                |
+| 10. | `testing`                                   | <`Other`                                           |                    |                |
 
 Notes:
 
@@ -750,6 +751,7 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                 "type": "object",
                                 "additionalProperties": false,
                                 "minProperties": 1,
+                                "maxProperties": 1,
                                 "properties": {
                                     "artwork": {
                                         "$ref": "#/definitions/role-description",
@@ -760,7 +762,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "graphical design such as logo, iconography, visual design",
                                             "animations"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "artwork"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "conceptualization": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Formulation of the idea and goals of the software, design of main features and functionalities",
@@ -769,7 +781,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "architect",
                                             "requirements gathering"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "conceptualization"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "data": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Integration of data in the software and ensures metadata is annotated and available",
@@ -779,7 +801,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "data manager",
                                             "data curator"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "development": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Creation and maintenance of the software, making the software ready for release",
@@ -789,7 +821,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "UI/UX designer",
                                             "release manager"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "development"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "documentation": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Writing of any documentation related to the software, including but not limited to writing of user guidelines, API documentation, technical reports, etc.",
@@ -797,7 +839,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "technical writer",
                                             "metadata curator"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "documentation"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "funding": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Acquisition or management of funding for effort and events that sustain the software",
@@ -805,7 +857,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "principal investigator",
                                             "work package leader"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "funding"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "infrastructure": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Provision and maintenance of resources used and exposed by the software project, like computational infrastructure and cloud systems",
@@ -813,12 +875,32 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "system administrator",
                                             "cloud manager"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "infrastructure"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "other": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Any other role",
                                         "examples": []
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "other"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "outreach": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Communication with end-users and stakeholders",
@@ -827,7 +909,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "community manager",
                                             "user support"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "outreach"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "supervision": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Coordinating the project effort, possibly across organizational boundaries",
@@ -837,7 +929,17 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                             "advisor",
                                             "team leader"
                                         ]
-                                    },
+                                    }
+                                },
+                                "required": [
+                                    "supervision"
+                                ]
+                            }, {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "minProperties": 1,
+                                "maxProperties": 1,
+                                "properties": {
                                     "testing": {
                                         "$ref": "#/definitions/role-description",
                                         "description": "Unit test, usability, integration tests, release test",
@@ -847,8 +949,11 @@ Additionally, some folks have advocated for having a free text field as CFF cont
                                         ]
                                     }
                                 },
-                                "required": []
+                                "required": [
+                                    "testing"
+                                ]
                             }
+
                         ]
                     }
                 }
@@ -877,39 +982,25 @@ roles:
 # a contributor with multiple roles, as array
 roles:
 - supervision
+- artwork
 - conceptualization  # "conceptualization" is a string
 ```
 
 ```yaml
 # contributor with multiple roles, as array,
-# where free text can be added to explain
+# with free text added to explain
 roles:
 - supervision
+- artwork: drawings
 - conceptualization: description of conceptualization
-    # "conceptualization" is a key in a dict
-    # should "conceptualization:" be valid (i.e. when its value is empty string)?
+    # "conceptualization" is a key in a dict of length 1
 ```
 
 ```yaml
-# contributor with a role that doesn't fit the existing role names
-# according to the metadata author
+# contributor with a role that doesn't fit the existing
+# role names according to the metadata author
 roles:
 - other: description of the other activity
-```
-
-What's maybe a bit odd is that these 2 examples are the same:
-
-```yaml
-roles:
-  - conceptualization
-  - supervision: managing the little ones
-  - artwork: doodling
-```
-```yaml
-roles:
-  - conceptualization
-  - supervision: managing the little ones
-    artwork: doodling  # seemingly wrong to omit the dash
 ```
 
 The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
@@ -929,5 +1020,3 @@ The advantage of including an optional description is we can see if people need 
 1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/
 1. MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
-1. All-contributors taxonomy: https://allcontributors.org/docs/en/emoji-key
-1. Look into defining a dict with one key for each term to avoid confusion about array of roles
