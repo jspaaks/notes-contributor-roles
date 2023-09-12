@@ -57,7 +57,7 @@ CASRAI is short for Consortium for Advancing Standards in Research Administratio
     - https://credit.niso.org/
 - Used by AGU since 2017
 - (Being) adopted by Cell Press, PLOS and many other publishers (https://credit.niso.org/adopters/), and has been integrated into some submission and peer review systems and research workflow tools.
-- Defines 14 roles 
+- Defines 14 roles
     1. `Conceptualization`
     2. `Data Curation`
     3. `Formal Analysis`
@@ -77,7 +77,7 @@ CASRAI is short for Consortium for Advancing Standards in Research Administratio
 
 ### Contribution Ontology
 
-- Deprecated, redirect to [Contributor Role Ontology](#Contributor-Role-Ontology). 
+- Deprecated, redirect to [Contributor Role Ontology](#Contributor-Role-Ontology).
 - https://github.com/openrif/contribution-ontology/blob/731b1e321ebeaf22ecf977e472c383fe510f10c3/src/cro.owl defines the following taxonomy:
     1. `Author Role`
         1. `Editing and Proofreading Role`
@@ -452,10 +452,10 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
 ## JATS
 
 - JATS = Journal Article Tag Suite
-- PDF specification: https://groups.niso.org/higherlogic/ws/public/download/21030/ANSI-NISO-Z39.96-2019.pdf, https://dx.doi.org/10.3789/ansi.niso.z39.96-2019 (652 pp because why not) 
+- PDF specification: https://groups.niso.org/higherlogic/ws/public/download/21030/ANSI-NISO-Z39.96-2019.pdf, https://dx.doi.org/10.3789/ansi.niso.z39.96-2019 (652 pp because why not)
 - Wikipedia https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite
 - Home page https://jats.nlm.nih.gov/
-- Widely adopted standard for separating content and metadata of articles (mostly journal articles) from presentation; 
+- Widely adopted standard for separating content and metadata of articles (mostly journal articles) from presentation;
 - JATS aims to describe any of the following types of documents (although technically you can use other terms?):
     1. `abstract`
     1. `addendum`
@@ -505,7 +505,7 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
 ## JATS4R
 
 - https://github.com/JATS4R
-- JATS4R ([JATS](#JATS) for Reuse) is a working group devoted to optimising the reusability of scholarly content by developing best-practice recommendations for tagging content in JATS XML 
+- JATS4R ([JATS](#JATS) for Reuse) is a working group devoted to optimising the reusability of scholarly content by developing best-practice recommendations for tagging content in JATS XML
 - Online validator with meh UX: copy-paste from https://github.com/JATS4R/JATS4R-Participant-Hub/tree/19fcf35f519647e9cb0ca90215e5583a93a78191/examples, put it in a local XML file, then click the mini button "Browse" https://validator.jats4r.org/ to select it.
 
 ## JAMS
@@ -513,7 +513,7 @@ Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-aut
 - https://github.com/jam-schema/jams
 - Julien Colomb et al.
 - project doesnt't seem stable/mature yet, needs testing in the real world with real users / cases / tooling
-- https://github.com/jam-schema/jams/blob/fdc90f388378e24deba43928647c46ce5bca86f6/Jamschema_v1.yml defines 
+- https://github.com/jam-schema/jams/blob/fdc90f388378e24deba43928647c46ce5bca86f6/Jamschema_v1.yml defines
     1. `Conceptualization`
     2. `Data curation`
     3. `Formal Analysis`
@@ -544,13 +544,13 @@ Some folks have advocated for having a free text field as CFF contributor role. 
             "type": "string",
             "enum": [
                 "conceptualization",
-                "data curation",
+                "data",
                 "development",
                 "documentation",
                 "funding",
                 "outreach",
+                "infrastructure",
                 "other",
-                "resources",
                 "supervision",
                 "testing"
             ]
@@ -579,16 +579,91 @@ Some folks have advocated for having a free text field as CFF contributor role. 
                                 "additionalProperties": false,
                                 "minProperties": 1,
                                 "properties": {
-                                    "conceptualization": { "$ref": "#/definitions/role-description" },
-                                    "data curation": { "$ref": "#/definitions/role-description" },
-                                    "development": { "$ref": "#/definitions/role-description" },
-                                    "documentation": { "$ref": "#/definitions/role-description" },
-                                    "funding": { "$ref": "#/definitions/role-description" },
-                                    "other": { "$ref": "#/definitions/role-description" },
-                                    "outreach": { "$ref": "#/definitions/role-description" },
-                                    "resources": { "$ref": "#/definitions/role-description" },
-                                    "supervision": { "$ref": "#/definitions/role-description" },
-                                    "testing": { "$ref": "#/definitions/role-description" }
+                                    "conceptualization": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Formulation of the idea and goals of the software, design of main features and functionalities",
+                                        "examples": [
+                                            "principal investigator",
+                                            "architect",
+                                            "requirements gathering"
+                                        ]
+                                    },
+                                    "data": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Integration of data in the software and ensures metadata is annotated and available",
+                                        "examples": [
+                                            "data provider",
+                                            "statician",
+                                            "data manager",
+                                            "data curator"
+                                        ]
+                                    },
+                                    "development": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Creation and maintenance of the software, making the software ready for release",
+                                        "examples": [
+                                            "programmer",
+                                            "maintainer",
+                                            "UI/UX designer",
+                                            "release manager"
+                                        ]
+                                    },
+                                    "documentation": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Writing of any documentation related to the software, including but not limited to writing of user guidelines, API documentation, technical reports, etc.",
+                                        "examples": [
+                                            "technical writer",
+                                            "metadata curator"
+                                        ]
+                                    },
+                                    "funding": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Acquisition or management of funding for effort and events that sustain the software",
+                                        "examples": [
+                                            "principal investigator",
+                                            "work package leader"
+                                        ]
+                                    },
+                                    "infrastructure": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Provision and maintenance of resources used and exposed by the software project, like computational infrastructure and cloud systems",
+                                        "examples": [
+                                            "system administrator",
+                                            "cloud manager"
+                                        ]
+                                    },
+                                    "other": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Any other role",
+                                        "examples": []
+                                    },
+                                    "outreach": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Communication with end-users and stakeholders",
+                                        "examples": [
+                                            "training",
+                                            "community manager",
+                                            "user support"
+                                        ]
+                                    },
+                                    "supervision": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Coordinating the project effort, possibly across organizational boundaries",
+                                        "examples": [
+                                            "coordinator",
+                                            "project manager",
+                                            "advisor",
+                                            "team leader"
+                                        ]
+                                    },
+                                    "testing": {
+                                        "$ref": "#/definitions/role-description",
+                                        "description": "Unit test, usability, integration tests, release test",
+                                        "examples": [
+                                            "reviewer",
+                                            "reporting user"
+                                        ]
+                                    }
                                 },
                                 "required": []
                             }
@@ -624,11 +699,11 @@ roles:
 ```
 
 ```yaml
-# contributor with multiple roles, as array, 
+# contributor with multiple roles, as array,
 # where free text can be added to explain
 roles:
 - supervision
-- conceptualization: description of the coding
+- conceptualization: description of conceptualization
     # "conceptualization" is a key in a dict
     # should "conceptualization:" be valid (its value is empty string)?
 ```
