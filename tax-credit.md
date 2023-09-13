@@ -26,5 +26,5 @@
     12. `Visualization`
     13. `Writing – Original Draft` # beware! emdash why?
     14. `Writing – Review & Editing` # beware! emdash why?
-- Extended by the [Contributor Role Ontology](#Contributor-Role-Ontology) (not to be confused with the [Contribution Ontology](#Contribution-Ontology) to be described next)
+- Extended by the [Contributor Role Ontology](tax-contributor-role-ontology.md) (not to be confused with the [Contribution Ontology](tax-contribution-ontology.md))
 - Ontology does not define a catch-all `Other` term. This leads to ambiguity for contributors who do not have a role assigned: is their role unknown, is their role omitted by mistake, does their role not fit with any of the terms?
