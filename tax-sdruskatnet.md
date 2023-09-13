@@ -1,4 +1,4 @@
-### sdruskat.net
+# sdruskat.net
 
 Preliminary roles taxonomy from Stephan's blog https://sdruskat.net/software-authorship/. Corresponding GitHub Repository: https://github.com/sdruskat/software-authorship
 
