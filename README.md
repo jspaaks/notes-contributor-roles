@@ -3,35 +3,36 @@
 ## GitHub issues
 
 1. _Align person roles with the OpenRIF Contribution Role Ontology_ https://github.com/citation-file-format/citation-file-format/issues/27
-2. _Proposal: Add a contributors field_ https://github.com/citation-file-format/citation-file-format/issues/66
-3. _Allow differentiation between authors/contributors_ https://github.com/citation-file-format/citation-file-format/issues/84
-4. _Create roles as a simple way to record contribution roles?_ https://github.com/citation-file-format/citation-file-format/issues/112
+1. _Proposal: Add a contributors field_ https://github.com/citation-file-format/citation-file-format/issues/66
+1. _Allow differentiation between authors/contributors_ https://github.com/citation-file-format/citation-file-format/issues/84
+1. _Create roles as a simple way to record contribution roles?_ https://github.com/citation-file-format/citation-file-format/issues/112
 
 ## Organizations
 
 1. [CASRAI](org-casrai.md)
-2. [FORCE16 Attribution Working Group](org-force16-attribution-wg.md)
-3. [OpenRIF](org-openrif.md)
-4. [Zenodo](org-zenodo.md)
+1. [FORCE16 Attribution Working Group](org-force16-attribution-wg.md)
+1. [OpenRIF](org-openrif.md)
+1. [Zenodo](org-zenodo.md)
 
 ## Ontologies
 
 1. [CRediT](tax-credit.md)
-2. [Contribution Ontology](tax-contribution-ontology.md)
-3. [Contributor Role Ontology](tax-contributor-role-ontology.md)
-4. [Zenodo](tax-zenodo.md)
-5. [SCoRO](tax-scoro.md)
-6. [Habermann](tax-habermann.md)
-7. [sdruskat.net](tax-sdruskatnet.md)
-8. [schema.org / codemeta](tax-schemaorg-codemeta.md)
-9. [Allcontributors](tax-allcontributors.md)
+1. [Contribution Ontology](tax-contribution-ontology.md)
+1. [Contributor Role Ontology](tax-contributor-role-ontology.md)
+1. [Zenodo](tax-zenodo.md)
+1. [SCoRO](tax-scoro.md)
+1. [Habermann](tax-habermann.md)
+1. [sdruskat.net](tax-sdruskatnet.md)
+1. [schema.org / codemeta](tax-schemaorg-codemeta.md)
+1. [Allcontributors](tax-allcontributors.md)
+1. [CrossRef](tax-crossref.md)
 
 ## Two potential setups
 
 The table below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0, 
 
 1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) (column 2), or
-2. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md) (column 3).
+1. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md) (column 3).
 
 |     | Allcontributors concept                                       | CFF == Allcontributors | CFF == sdruskat.net + recommendations        |
 | --- | ---                                                           | ---                    | ---                                          |
@@ -145,8 +146,8 @@ Notes:
 The file [schema.json](schema.json) describes how to update CFF's JSONSchema file for version 1.3.0. I wrote it for the [enum from sdruskat.net + recommendations](tax-sdruskatnet.md), but it would conceptually be the same for any given `enum`. Combine some online resources to try it out interactively:
 
 1. JSONschema validator [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/)
-2. converting YAML to JSON here [https://onlineyamltools.com/convert-yaml-to-json](https://onlineyamltools.com/convert-yaml-to-json)
-3. converting JSON to YAML https://www.json2yaml.com/
+1. converting YAML to JSON here [https://onlineyamltools.com/convert-yaml-to-json](https://onlineyamltools.com/convert-yaml-to-json)
+1. converting JSON to YAML https://www.json2yaml.com/
 
 ```yaml
 # a contributor with one role, as string
@@ -187,21 +188,18 @@ roles:
 Notes:
 
 1. Some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But if we do it like I wrote in the schema file, you can have an element from an `enum`, or a `dict` key with an explanation. In YAML/CFF, this looks pretty clean.
-2. The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
+1. The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
 
-## Open questions
+## Loose ends
 
 1. Is this maybe useful https://rollercoaster.shinyapps.io/tenzing/ (Tenzing)
 1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
 1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
 1. TODO: Look into mapping CRediT roles to Zenodo metadata roles
-1. crossref on youtube, homepage https://www.crossref.org/documentation/schema-library/metadata-deposit-schema-5-3-1/
-1. schema.org and codemeta have a set of roles as well, (how) can we promote compatibility with them?
-1. crossref has its own contributor roles schema: https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/contributors/
-1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
 1. contributor attribution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html. Their example uses Contributor Role Ontology: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html#data-examples
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
 1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/
 1. MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. Look into whether datacite defines roles and what they are
+1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
