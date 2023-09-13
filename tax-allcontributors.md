@@ -1,4 +1,4 @@
-### Allcontributors
+# Allcontributors
 
 - Big pro: this is based on actual experience using it in many projects
 - Open question: do these keys sufficiently cover contributions as they are valued in academia?
@@ -36,4 +36,3 @@
 1. `talk`
 1. `userTesting`
 1. `video`
-
