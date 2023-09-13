@@ -19,7 +19,7 @@
 1. [CRediT](tax-credit.md)
 2. [Contribution Ontology](tax-contribution-ontology.md)
 3. [Contributor Role Ontology](tax-contributor-role-ontology.md)
-4. [Zenodo metadata](tax-zenodo-metadata.md)
+4. [Zenodo](tax-zenodo.md)
 5. [SCoRO](tax-scoro.md)
 6. [Habermann](tax-habermann.md)
 7. [sdruskat.net](tax-sdruskatnet.md)
