@@ -1,4 +1,4 @@
-# Zenodo metadata
+# Zenodo / DataCite metadata
 
 https://github.com/zenodraft/metadata-schema-zenodo/blob/7a48a4d876e95589e6dfe833e27751dfc2120719/schema.json defines the following 21 roles:
 
@@ -25,3 +25,5 @@ https://github.com/zenodraft/metadata-schema-zenodo/blob/7a48a4d876e95589e6dfe83
 21. `WorkPackageLeader`
 
 Seems to have similar scope as CRediT, data management, project management, funding. Doesn't have any term for software related contributions, forced to use `Other`!
+
+Zenodo uses DataCite taxonomy for their contributor roles. https://schema.datacite.org/meta/kernel-4.3/doc/DataCite-MetadataKernel_v4.3.pdf

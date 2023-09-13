@@ -19,7 +19,7 @@
 1. [CRediT](tax-credit.md)
 1. [Contribution Ontology](tax-contribution-ontology.md)
 1. [Contributor Role Ontology](tax-contributor-role-ontology.md)
-1. [Zenodo](tax-zenodo.md)
+1. [Zenodo/DataCite](tax-zenodo-datacite.md)
 1. [SCoRO](tax-scoro.md)
 1. [Habermann](tax-habermann.md)
 1. [sdruskat.net](tax-sdruskatnet.md)
@@ -86,9 +86,9 @@ Notes:
 - to Endnote: N/A
 - to Schema.org: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
 - to RIS: N/A
-- to Zenodo, CodeMeta, CRediT: see below
+- to Zenodo/DataCite, CodeMeta, CRediT: see below
 
-|     | from Allcontributors                        | to Zenodo                                                                                     | to CodeMeta 3.0                   | to CRediT                   |
+|     | from Allcontributors                        | to Zenodo/DataCite                                                                            | to CodeMeta 3.0                   | to CRediT                   |
 | --- | ---                                         | ---                                                                                           | ---                               | ---                         |
 | 1.  | `audio`                                     | <`Other`                                                                                      | no target                         | no target                   |
 | 2.  | `a11y`                                      | <`Other`                                                                                      | no target                         | no target                   |
@@ -124,7 +124,7 @@ Notes:
 | 32. | `userTesting`                               | <`Other`                                                                                      | <`Testing`?                       | no target                   |
 | 33. | `video`                                     | <`Other`                                                                                      | no target                         | no target                   |
 |     | `-----------------`                         | `------------------`                                                                          | `------------`                    | `------------`              |
-|     | **from sdruskat.net with recommendations**  | **to Zenodo**                                                                                 | **to Codemeta 3.0**               | **to CRediT**               |
+|     | **from sdruskat.net with recommendations**  | **to Zenodo/DataCite**                                                                        | **to Codemeta 3.0**               | **to CRediT**               |
 | 1.  | `artwork`                                   | <`Other`                                                                                      | no target                         | ~=`Visualization`           |
 | 2.  | `conceptualization`                         | <`Other`                                                                                      | ~=`Design` >~~`Architecture`~~    | ==`Conceptualization`       |
 | 3.  | `data`                                      | ~=`DataManager`, >~~`DataCollector`~~, >~~`DataCurator`~~                                     | no target                         | ~=`Data Curation`           |
@@ -139,7 +139,7 @@ Notes:
 
 Notes:
 
-1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo, that basically leaves only `Other`, which isn't a meaningful. So in our decision making, Zenodo schema terms can be safely ignored -- whatever we come up with maps to Zenodo's `Other` term regardless.
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful. So in our decision making, Zenodo/DataCite schema terms can be safely ignored -- whatever we come up with maps to Zenodo/DataCite's `Other` term regardless.
 
 ### Preliminary `roles` schema
 
@@ -195,11 +195,9 @@ Notes:
 1. Is this maybe useful https://rollercoaster.shinyapps.io/tenzing/ (Tenzing)
 1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
 1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
-1. TODO: Look into mapping CRediT roles to Zenodo metadata roles
+1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
 1. contributor attribution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html. Their example uses Contributor Role Ontology: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html#data-examples
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
-1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/
-1. MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
-1. Look into whether datacite defines roles and what they are
+1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo/DataCite has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
+1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
