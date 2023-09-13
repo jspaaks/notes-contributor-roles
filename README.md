@@ -144,7 +144,7 @@ The file [schema.json](schema.json) describes how to update CFF's JSONSchema fil
 
 1. JSONschema validator [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/)
 2. converting YAML to JSON here [https://onlineyamltools.com/convert-yaml-to-json](https://onlineyamltools.com/convert-yaml-to-json)
-3. converting YAML to JSON https://www.json2yaml.com/
+3. converting JSON to YAML https://www.json2yaml.com/
 
 ```yaml
 # a contributor with one role, as string
