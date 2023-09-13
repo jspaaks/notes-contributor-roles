@@ -81,13 +81,13 @@ Notes:
 
 - to Apalike: N/A
 - to Bibtex: N/A
-- to Codemeta 3.0: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
+- to CodeMeta 3.0: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
 - to Endnote: N/A
 - to Schema.org: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
 - to RIS: N/A
-- to Zenodo, CRediT: see below
+- to Zenodo, CodeMeta, CRediT: see below
 
-|     | from Allcontributors                        | to Zenodo                                                  | to Codemeta                       | to CRediT      |
+|     | from Allcontributors                        | to Zenodo                                                  | to CodeMeta 3.0                   | to CRediT      |
 | --- | ---                                         | ---                                                        | ---                               | ---            |
 | 1.  | `audio`                                     |                                                            | no target                         |                |
 | 2.  | `a11y`                                      |                                                            | no target                         |                |
@@ -123,7 +123,7 @@ Notes:
 | 32. | `userTesting`                               |                                                            | <`Testing`?                       |                |
 | 33. | `video`                                     |                                                            | no target                         |                |
 |     | `-----------------`                         | `------------------`                                       | `------------`                    | `------------` |
-|     | **from sdruskat.net with recommendations**  | **to Zenodo**                                              | **to Codemeta**                   | **to CRediT**  |
+|     | **from sdruskat.net with recommendations**  | **to Zenodo**                                              | **to Codemeta 3.0**               | **to CRediT**  |
 | 1.  | `artwork`                                   | <`Other`                                                   | no target                         |                |
 | 2.  | `conceptualization`                         | <`Other`                                                   | >~~`Design`~~ >~~`Architecture`~~ |                |
 | 3.  | `data`                                      | >~~`DataManager`~~ >~~`DataCollector`~~ >~~`DataCurator`~~ | no target                         |                |
