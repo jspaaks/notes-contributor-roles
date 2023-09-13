@@ -87,54 +87,54 @@ Notes:
 - to RIS: N/A
 - to Zenodo, CRediT: see below
 
-|     | from Allcontributors                        | to Zenodo                                                  | to Codemeta                      | to CRediT      |
-| --- | ---                                         | ---                                                        | ---                              | ---            |
-| 1.  | `audio`                                     |                                                            | no target                        |                |
-| 2.  | `a11y`                                      |                                                            | no target                        |                |
-| 3.  | `bug`                                       |                                                            | no target                        |                |
-| 4.  | `blog`                                      |                                                            | no target                        |                |
-| 5.  | `business`                                  |                                                            | no target                        |                |
-| 6.  | `code`                                      |                                                            | `Coding`                         |                |
-| 7.  | `content`                                   |                                                            | no target                        |                |
-| 8.  | `data`                                      |                                                            | no target                        |                |
-| 9.  | `doc`                                       |                                                            | `Documentation`                  |                |
-| 10. | `design`                                    |                                                            | no target, !`Design`             |                |
-| 11. | `example`                                   |                                                            | <`Documentation`, <`Support`     |                |
-| 12. | `eventOrganizing`                           |                                                            | <`Support`                       |                |
-| 13. | `financial`                                 |                                                            | no target                        |                |
-| 14. | `fundingFinding`                            |                                                            | <`Management`                    |                |
-| 15. | `ideas`                                     |                                                            | <`Architecture`, <`Design`       |                |
-| 16. | `infra`                                     |                                                            | no target                        |                |
-| 17. | `maintenance`                               |                                                            | `Maintenance`                    |                |
-| 18. | `mentoring`                                 |                                                            | no target                        |                |
-| 19. | `platform`                                  |                                                            | <`Coding`                        |                |
-| 20. | `plugin`                                    |                                                            | <`Coding`                        |                |
-| 21. | `projectManagement`                         |                                                            | `Management`                     |                |
-| 22. | `promotion`                                 |                                                            | no target                        |                |
-| 23. | `question`                                  |                                                            | `Support`                        |                |
-| 24. | `research`                                  |                                                            | no target                        |                |
-| 25. | `review`                                    |                                                            | <`Coding`                        |                |
-| 26. | `security`                                  |                                                            | no target                        |                |
-| 27. | `tool`                                      |                                                            | <`Coding`                        |                |
-| 28. | `translation`                               |                                                            | <`Coding`                        |                |
-| 29. | `test`                                      |                                                            | `Testing`                        |                |
-| 30. | `tutorial`                                  |                                                            | <`Documentation`, <`Support`     |                |
-| 31. | `talk`                                      |                                                            | no target                        |                |
-| 32. | `userTesting`                               |                                                            | <`Testing`?                      |                |
-| 33. | `video`                                     |                                                            | no target                        |                |
-|     | `-----------------`                         | `------------------`                                       | `------------`                   | `------------` |
-|     | **from sdruskat.net with recommendations**  | **to Zenodo**                                              | **to Codemeta**                  | **to CRediT**  |
-| 1.  | `artwork`                                   | <`Other`                                                   | no target                        |                |
-| 2.  | `conceptualization`                         | <`Other`                                                   | >`Design` >`Architecture`        |                |
-| 3.  | `data`                                      | >~~`DataManager`~~ >~~`DataCollector`~~ >~~`DataCurator`~~ | no target                        |                |
-| 4.  | `development`                               | <`Other`                                                   | >`Coding` >`Maintenance`         |                |
-| 5.  | `documentation`                             | <`Other`                                                   | `Documentation`                  |                |
-| 6.  | `funding`                                   | >~~`Sponsor`~~                                             | >`Management`?                   |                |
-| 7.  | `infrastructure`                            | >~~`HostingInstitution`~~                                  | no target                        |                |
-| 8.  | `other`                                     | ==`Other`                                                  | no target                        |                |
-| 9.  | `outreach`                                  | <`Other`                                                   | >`Support`                       |                |
-| 10. | `supervision`                               | >~~`Supervisor`~~                                          | `Management`                     |                |
-| 11. | `testing`                                   | <`Other`                                                   | `Testing`                        |                |
+|     | from Allcontributors                        | to Zenodo                                                  | to Codemeta                       | to CRediT      |
+| --- | ---                                         | ---                                                        | ---                               | ---            |
+| 1.  | `audio`                                     |                                                            | no target                         |                |
+| 2.  | `a11y`                                      |                                                            | no target                         |                |
+| 3.  | `bug`                                       |                                                            | no target                         |                |
+| 4.  | `blog`                                      |                                                            | no target                         |                |
+| 5.  | `business`                                  |                                                            | no target                         |                |
+| 6.  | `code`                                      |                                                            | `Coding`                          |                |
+| 7.  | `content`                                   |                                                            | no target                         |                |
+| 8.  | `data`                                      |                                                            | no target                         |                |
+| 9.  | `doc`                                       |                                                            | `Documentation`                   |                |
+| 10. | `design`                                    |                                                            | no target, !`Design`              |                |
+| 11. | `example`                                   |                                                            | <`Documentation`, <`Support`      |                |
+| 12. | `eventOrganizing`                           |                                                            | <`Support`                        |                |
+| 13. | `financial`                                 |                                                            | no target                         |                |
+| 14. | `fundingFinding`                            |                                                            | <`Management`                     |                |
+| 15. | `ideas`                                     |                                                            | <`Architecture`, <`Design`        |                |
+| 16. | `infra`                                     |                                                            | no target                         |                |
+| 17. | `maintenance`                               |                                                            | `Maintenance`                     |                |
+| 18. | `mentoring`                                 |                                                            | no target                         |                |
+| 19. | `platform`                                  |                                                            | <`Coding`                         |                |
+| 20. | `plugin`                                    |                                                            | <`Coding`                         |                |
+| 21. | `projectManagement`                         |                                                            | `Management`                      |                |
+| 22. | `promotion`                                 |                                                            | no target                         |                |
+| 23. | `question`                                  |                                                            | `Support`                         |                |
+| 24. | `research`                                  |                                                            | no target                         |                |
+| 25. | `review`                                    |                                                            | <`Coding`                         |                |
+| 26. | `security`                                  |                                                            | no target                         |                |
+| 27. | `tool`                                      |                                                            | <`Coding`                         |                |
+| 28. | `translation`                               |                                                            | <`Coding`                         |                |
+| 29. | `test`                                      |                                                            | `Testing`                         |                |
+| 30. | `tutorial`                                  |                                                            | <`Documentation`, <`Support`      |                |
+| 31. | `talk`                                      |                                                            | no target                         |                |
+| 32. | `userTesting`                               |                                                            | <`Testing`?                       |                |
+| 33. | `video`                                     |                                                            | no target                         |                |
+|     | `-----------------`                         | `------------------`                                       | `------------`                    | `------------` |
+|     | **from sdruskat.net with recommendations**  | **to Zenodo**                                              | **to Codemeta**                   | **to CRediT**  |
+| 1.  | `artwork`                                   | <`Other`                                                   | no target                         |                |
+| 2.  | `conceptualization`                         | <`Other`                                                   | >~~`Design`~~ >~~`Architecture`~~ |                |
+| 3.  | `data`                                      | >~~`DataManager`~~ >~~`DataCollector`~~ >~~`DataCurator`~~ | no target                         |                |
+| 4.  | `development`                               | <`Other`                                                   | >~~`Coding`~~ >~~`Maintenance`~~  |                |
+| 5.  | `documentation`                             | <`Other`                                                   | `Documentation`                   |                |
+| 6.  | `funding`                                   | >~~`Sponsor`~~                                             | >~~`Management`~~?                |                |
+| 7.  | `infrastructure`                            | >~~`HostingInstitution`~~                                  | no target                         |                |
+| 8.  | `other`                                     | ==`Other`                                                  | no target                         |                |
+| 9.  | `outreach`                                  | <`Other`                                                   | >~~`Support`~~                    |                |
+| 10. | `supervision`                               | >~~`Supervisor`~~                                          | `Management`                      |                |
+| 11. | `testing`                                   | <`Other`                                                   | `Testing`                         |                |
 
 Notes:
 
