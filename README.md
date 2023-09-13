@@ -138,7 +138,7 @@ Notes:
 
 Notes:
 
-1. Conversion targets that are smaller concepts than the source cannot be safely converted, hence I've crossed them out. For converting from sdruskat.net to Zenodo, that basically leaves only `Other` , which isn't a meaningful. So in our decision making, Zenodo schema terms can be safely ignored, whatever we come up with maps to Zenodo's `Other` term regardless.
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo, that basically leaves only `Other`, which isn't a meaningful. So in our decision making, Zenodo schema terms can be safely ignored -- whatever we come up with maps to Zenodo's `Other` term regardless.
 
 ### Preliminary `roles` schema
 
