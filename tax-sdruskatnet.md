@@ -16,7 +16,9 @@ Notes:
 
 I suggest making the following changes:
 
-1. rename `data curation` to `data`
-2. rename `resources` to `infrastructure`
-3. add `artwork`
-4. add `other`
+1. rename `Data curation` to `data`
+2. rename `Resources` to `infrastructure`
+3. add `Artwork`
+4. add `Other`
+5. use `US-en` spelling for `Conceptualisation`
+6. lowercase the elements of the enum
