@@ -184,7 +184,7 @@ roles:
 
 Notes:
 
-1. Some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But if we do it like I wrote in the schema file, you can have an element from an `enum`, or a `dict` key with an explanation. In YAML/CFF, this looks pretty clean:
+1. Some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But if we do it like I wrote in the schema file, you can have an element from an `enum`, or a `dict` key with an explanation. In YAML/CFF, this looks pretty clean.
 2. The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
 
 ## Open questions
