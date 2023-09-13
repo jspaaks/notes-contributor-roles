@@ -5,14 +5,14 @@
 - https://sparontologies.github.io/scoro/current/scoro.html defines the following ontology
 
 
-- `authorship contribution`
+1. `authorship contribution`
     - `approves final manuscript`
     - `prepares illustrations`
     - `prepares supplementary information`
     - `publishes data`
     - `revises manuscript`
     - `writes manuscript draft`
-- `experimental contribution`
+1. `experimental contribution`
     - `builds and/or maintains instruments`
     - `collects data`
     - `creates novel organisms or cells`
@@ -32,7 +32,7 @@
     - `provides software`
     - `provides technical support`
     - `provides tools, equipment or facilities`
-- `intellectual contribution`
+1. `intellectual contribution`
     - `analyses data`
     - `conceives project`
     - `designs experiments`
@@ -41,7 +41,7 @@
     - `leads investigation`
     - `provides advice`
     - `undertakes modelling`
-- `organizational contribution`
+1. `organizational contribution`
     - `Supervises, mentors or trains colleagues`
     - `controls project finances`
     - `ensures regulatory compliance`
