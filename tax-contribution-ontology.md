@@ -1,6 +1,6 @@
 # Contribution Ontology
 
-- Deprecated, redirect to [Contributor Role Ontology](#Contributor-Role-Ontology).
+- Deprecated, redirect to [Contributor Role Ontology](tax-contributor-role-ontology.md).
 - https://github.com/openrif/contribution-ontology/blob/731b1e321ebeaf22ecf977e472c383fe510f10c3/src/cro.owl defines the following taxonomy:
     1. `Author Role`
         1. `Editing and Proofreading Role`
