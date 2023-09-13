@@ -1,0 +1,3 @@
+# CASRAI
+
+CASRAI is short for Consortium for Advancing Standards in Research Administration Information. They are "a consortium of research institutions, funding agencies, and data management organizations that aims to improve the flow of information in research management by developing standardized data dictionaries and interoperable data exchange protocols". Their GitHub organization https://github.com/casrai appears empty/abandoned. Initially, the corporate site looks nice https://casrai.org/ but on closer inspection someone is using it to plug their religion. I'm confused, I thought we were talking about ontologies for research. Or maybe, God really is everywhere, including websites?
