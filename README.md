@@ -30,9 +30,9 @@
 
 The table below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0, 
 1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) (column 2), or
-2. assuming CFF uses [sdruskat.net terminology](tax-sdruskatnet.md) (with some changes; column 3).
+2. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md) (column 3).
 
-|     | Allcontributors concept                                       | CFF == Allcontributors | CFF == sdruskat.net + `Other` + `Artwork`    |
+|     | Allcontributors concept                                       | CFF == Allcontributors | CFF == sdruskat.net + recommendations        |
 | --- | ---                                                           | ---                    | ---                                          |
 | 1.  | Audio: ~~Podcasts,~~ background music or sound effects        |  `audio`               | `artwork`                                    |
 | 2.  | Accessibility: Reporting or working on accessibility issues   |  `a11y`                | `other: accessibility`                       |
@@ -70,10 +70,6 @@ The table below shows what keys would be needed to map a list of conceptual cont
 
 Notes:
 
-1. I renamed `sdruskat.net:resources` to `sdruskat.net:infrastructure`
-1. I introduced 2 new categories in the sdruskat column:
-    1. `artwork`, this could be the target for `audio`, `video` and `design`
-    2. `other`, to differentiate from the omission case.
 1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project
 1. I crossed out podcasts as part of Allcontributors's definition of `audio`, IMO podcasts are `promotion`
 1. All categories from sdruskat.net are actually used as targets in the mapping
