@@ -139,7 +139,7 @@ Notes:
 
 Notes:
 
-1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful. So in our decision making, Zenodo/DataCite schema terms can be safely ignored -- whatever we come up with maps to Zenodo/DataCite's `Other` term regardless.
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful term. So in our decision making, Zenodo/DataCite schema terms can be safely ignored -- whatever we come up with maps to Zenodo/DataCite's `Other` term regardless.
 
 ### Preliminary `roles` schema
 
