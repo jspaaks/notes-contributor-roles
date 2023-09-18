@@ -1,6 +1,7 @@
 # SCoRO
 
 - SCoRO, the Scholarly Contributions and Roles Ontology
+- GitHub: https://github.com/SPAROntologies/scoro/graphs/contributors
 - Not very software centric
 - https://sparontologies.github.io/scoro/current/scoro.html defines the following ontology
 
