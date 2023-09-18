@@ -117,8 +117,8 @@ The tables below show how CFF 1.3.0 keys would map onto other taxonomies
 
 Notes:
 
-1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list.
-1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful term. So in our decision making, perhaps Zenodo/DataCite schema terms can be ignored -- whatever we come up with likely maps to Zenodo/DataCite's `Other` term regardless.
+1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list. Maybe the problem goes away if you interpret those "important" roles as author roles?
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. In our decision making, perhaps Zenodo/DataCite schema terms should be ignored -- whatever the source key, it will likely map to Zenodo/DataCite's `Other` term regardless.
 1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project.
 1. One could use the `allcontributors` bot to do its thing; `CONTRIBUTORS.md` would then be the single source of truth about contributors. Then, use a to-be-created tool to sync `CONTRIBUTORS.md` to `CITATION.cff`, maybe based on GitHub aliases? Insert `contributors[i].alias` in CFF using `CONTRIBUTORS.md` when alias is missing from CFF, but don't add names (requires splitting names into name parts, an unsolvable problem).
 1. For CodeMeta, `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
@@ -134,27 +134,23 @@ The file [schema.json](schema.json) describes how to update CFF's JSONSchema fil
 1. converting JSON to YAML https://www.json2yaml.com/
 
 ```yaml
-# a contributor with one role, as string
-roles: conceptualization
-```
-
-```yaml
-# a contributor with one role, as array
+# a contributor with one role, as array of string with one element
 roles:
 - conceptualization
 ```
 
 ```yaml
-# a contributor with multiple roles, as array
+# a contributor with multiple roles, as array of string
 roles:
 - supervision
 - artwork
-- conceptualization  # "conceptualization" is a string
+- conceptualization
 ```
 
 ```yaml
-# contributor with multiple roles, as array,
-# with free text added to explain
+# contributor with multiple roles, as mixed array of
+# string and key-value pair, with free text added
+# to explain
 roles:
 - supervision
 - artwork: drawings
@@ -164,7 +160,7 @@ roles:
 
 ```yaml
 # contributor with a role that doesn't fit the existing
-# role names according to the metadata author
+# role names, according to the metadata author
 roles:
 - other: description of the other activity
 ```
@@ -176,15 +172,13 @@ Notes:
 
 ## Loose ends
 
-1. Is this maybe useful https://rollercoaster.shinyapps.io/tenzing/ (Tenzing)
 1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
 1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
 1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
 1. contributor attribution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html. Their example uses Contributor Role Ontology: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html#data-examples
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo/DataCite has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
+1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches change the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo/DataCite has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
-1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
 1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
 1. Should authors have the same roles as contributors? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591

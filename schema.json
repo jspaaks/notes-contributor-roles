@@ -26,228 +26,220 @@
     },
     "properties": {
         "roles": {
-            "oneOf": [
-                {
-                    "$ref": "#/definitions/role"
-                },
-                {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                        "oneOf": [
-                            { "$ref": "#/definitions/role" },
-                            {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "artwork": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "",
-                                        "examples": [
-                                            "audio artwork such as background music or sound effects",
-                                            "video artwork such as cutscenes",
-                                            "graphical design such as logo, iconography, visual design",
-                                            "animations"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "artwork"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "conceptualization": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Formulation of the idea and goals of the software, design of main features and functionalities",
-                                        "examples": [
-                                            "principal investigator",
-                                            "architect",
-                                            "requirements gathering"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "conceptualization"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "data": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Integration of data in the software and ensures metadata is annotated and available",
-                                        "examples": [
-                                            "data provider",
-                                            "statician",
-                                            "data manager",
-                                            "data curator"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "data"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "development": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Creation and maintenance of the software, making the software ready for release",
-                                        "examples": [
-                                            "programmer",
-                                            "maintainer",
-                                            "UI/UX designer",
-                                            "release manager"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "development"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "documentation": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Writing of any documentation related to the software, including but not limited to writing of user guidelines, API documentation, technical reports, etc.",
-                                        "examples": [
-                                            "technical writer",
-                                            "metadata curator"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "documentation"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "funding": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Acquisition or management of funding for effort and events that sustain the software",
-                                        "examples": [
-                                            "principal investigator",
-                                            "work package leader"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "funding"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "infrastructure": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Provision and maintenance of resources used and exposed by the software project, like computational infrastructure and cloud systems",
-                                        "examples": [
-                                            "system administrator",
-                                            "cloud manager"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "infrastructure"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "other": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Any other role",
-                                        "examples": []
-                                    }
-                                },
-                                "required": [
-                                    "other"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "outreach": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Communication with end-users and stakeholders",
-                                        "examples": [
-                                            "training",
-                                            "community manager",
-                                            "user support"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "outreach"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "supervision": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Coordinating the project effort, possibly across organizational boundaries",
-                                        "examples": [
-                                            "coordinator",
-                                            "project manager",
-                                            "advisor",
-                                            "team leader"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "supervision"
-                                ]
-                            }, {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "maxProperties": 1,
-                                "properties": {
-                                    "testing": {
-                                        "$ref": "#/definitions/role-description",
-                                        "description": "Unit test, usability, integration tests, release test",
-                                        "examples": [
-                                            "reviewer",
-                                            "reporting user"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "testing"
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "oneOf": [
+                    { "$ref": "#/definitions/role" },
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "artwork": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "",
+                                "examples": [
+                                    "audio artwork such as background music or sound effects",
+                                    "video artwork such as cutscenes",
+                                    "graphical design such as logo, iconography, visual design",
+                                    "animations"
                                 ]
                             }
-
+                        },
+                        "required": [
+                            "artwork"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "conceptualization": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Formulation of the idea and goals of the software, design of main features and functionalities",
+                                "examples": [
+                                    "principal investigator",
+                                    "architect",
+                                    "requirements gathering"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "conceptualization"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "data": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Integration of data in the software and ensures metadata is annotated and available",
+                                "examples": [
+                                    "data provider",
+                                    "statician",
+                                    "data manager",
+                                    "data curator"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "data"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "development": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Creation and maintenance of the software, making the software ready for release",
+                                "examples": [
+                                    "programmer",
+                                    "maintainer",
+                                    "UI/UX designer",
+                                    "release manager"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "development"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "documentation": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Writing of any documentation related to the software, including but not limited to writing of user guidelines, API documentation, technical reports, etc.",
+                                "examples": [
+                                    "technical writer",
+                                    "metadata curator"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "documentation"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "funding": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Acquisition or management of funding for effort and events that sustain the software",
+                                "examples": [
+                                    "principal investigator",
+                                    "work package leader"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "funding"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "infrastructure": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Provision and maintenance of resources used and exposed by the software project, like computational infrastructure and cloud systems",
+                                "examples": [
+                                    "system administrator",
+                                    "cloud manager"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "infrastructure"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "other": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Any other role",
+                                "examples": []
+                            }
+                        },
+                        "required": [
+                            "other"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "outreach": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Communication with end-users and stakeholders",
+                                "examples": [
+                                    "training",
+                                    "community manager",
+                                    "user support"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "outreach"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "supervision": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Coordinating the project effort, possibly across organizational boundaries",
+                                "examples": [
+                                    "coordinator",
+                                    "project manager",
+                                    "advisor",
+                                    "team leader"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "supervision"
+                        ]
+                    }, {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 1,
+                        "properties": {
+                            "testing": {
+                                "$ref": "#/definitions/role-description",
+                                "description": "Unit test, usability, integration tests, release test",
+                                "examples": [
+                                    "reviewer",
+                                    "reporting user"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "testing"
                         ]
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "required": [],
