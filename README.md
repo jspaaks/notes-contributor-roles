@@ -21,7 +21,7 @@ I see the following use cases:
 2. Ingest CFF after conversion
 3. Human consumption
 
-Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
+Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions, so it doesn't really matter what we choose. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
 
 Maybe in the future, places like LinkedIn, Monsterboard, Indeed and/or headhunters and/or general advertisement agencies (Microsoft/GitHub) can harvest the contributor role metadata from CITATION.cff to build more accurate profiles.
 
@@ -58,7 +58,7 @@ So with that said, is the purpose of differentiating various roles "just" readab
 
 ## Two potential setups
 
-The tables below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0,
+The tables below show how CFF 1.3.0 keys would map onto other taxonomies
 
 1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) for its contributor roles, or
 1. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md).
