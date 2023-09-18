@@ -16,20 +16,22 @@
 
 ## Ontologies
 
-1. [CRediT](tax-credit.md)
-1. [Contribution Ontology](tax-contribution-ontology.md)
-1. [Contributor Role Ontology](tax-contributor-role-ontology.md)
-1. [Zenodo/DataCite](tax-zenodo-datacite.md)
-1. [SCoRO](tax-scoro.md)
-1. [Habermann](tax-habermann.md)
-1. [sdruskat.net](tax-sdruskatnet.md)
-1. [schema.org / codemeta](tax-schemaorg-codemeta.md)
-1. [Allcontributors](tax-allcontributors.md)
-1. [CrossRef](tax-crossref.md)
+|      | Name                                                             | facilitatessoftware | isnested | numberofkeys | isalive   | hasmanyusers |
+| ---  | ---                                                              | ---                 | ---      | ---          | ---       | ---          |
+| 1.   | [CRediT](tax-credit.md)                                          | yes                 | no       | 14           | yes       | yes          |
+| 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                 | yes      | 21 (68)      | no        | no?          |
+| 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                 | yes      | 32 (93)      | yes       | no?          |
+| 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                  | no       | 21           | yes       | yes          |
+| 5.   | [SCoRO](tax-scoro.md)                                            | yes                 | yes      | 4 (43)       | no?       | no           |
+| 6.   | [Habermann](tax-habermann.md)                                    | yes                 | no       | 102          | no        | no           |
+| 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                 | no       | 11           | yes       | no           |
+| 8.   | [schema.org / codemeta](tax-schemaorg-codemeta.md)               | yes / yes           | no       | 0 / 9        | yes / yes | yes / maybe  |
+| 9.   | [Allcontributors](tax-allcontributors.md)                        | yes                 | no       | 33           | yes       | yes          |
+| 10.  | [CrossRef](tax-crossref.md)                                      | no                  | no       | 9            | yes       | yes          |
 
 ## Two potential setups
 
-The table below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0, 
+The table below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0,
 
 1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) (column 2), or
 1. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md) (column 3).
@@ -201,3 +203,31 @@ Notes:
 1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches changes the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo/DataCite has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
+1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
+1. Should authors have the same roles as contributors?
+
+
+## What problem are we trying to solve?
+
+In current practice, repository owners
+
+1. gift authorship to contributors even when the contribution is insignificant, simply because there is no other mechanism to give thanks.
+2. omit their contributors entirely, thus giving the impression that only they should be credited with the perceived benefits of the software.
+
+These two problems are easily solved by updating Citation File Format's schema such that the existing key `authors` gets a new branch `contributors`, where `contributors` has the same subschema as `authors`. With the updated format, repository owners would then be able to give credit to their contributors, without being forced to give out authorships in doing so.
+
+- Fixes https://github.com/citation-file-format/citation-file-format/issues/66
+
+## Who or what would consume metadata on roles?
+
+I see the following use cases:
+
+1. Ingest CFF directly
+2. Ingest CFF after conversion
+3. Human consumption
+
+Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
+
+Maybe in the future, places like LinkedIn, Monsterboard, Indeed and/or headhunters and/or general advertisement agencies (Microsoft/GitHub) can harvest the contributor role metadata from CITATION.cff to build more accurate profiles.
+
+So with that said, is the purpose of differentiating various roles "just" readability for humans, at least for now?
