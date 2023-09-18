@@ -1,5 +1,32 @@
 # Contributor Roles Notes
 
+## What problem are we trying to solve?
+
+In current practice, repository owners
+
+1. gift authorship to contributors even when the contribution is insignificant, simply because there is no other mechanism to give thanks.
+2. omit their contributors entirely, thus giving the impression that only they should be credited with the perceived benefits of the software.
+
+These two problems are easily solved by updating Citation File Format's schema such that the existing key `authors` gets a new branch `contributors`, where `contributors` has the same subschema as `authors`. With the updated format, repository owners would then be able to give credit to their contributors, without being forced to give out authorships in doing so.
+
+- Would fix https://github.com/citation-file-format/citation-file-format/issues/66
+
+A minor thing that still fits within the "citation" use case, as opposed to the "metadata" use case: automatic conversion from CITATION.cff to JATS would not be possible.
+
+## Who or what would consume metadata on roles?
+
+I see the following use cases:
+
+1. Ingest CFF directly
+2. Ingest CFF after conversion
+3. Human consumption
+
+Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
+
+Maybe in the future, places like LinkedIn, Monsterboard, Indeed and/or headhunters and/or general advertisement agencies (Microsoft/GitHub) can harvest the contributor role metadata from CITATION.cff to build more accurate profiles.
+
+So with that said, is the purpose of differentiating various roles "just" readability for humans, at least for now?
+
 ## GitHub issues
 
 1. _Align person roles with the OpenRIF Contribution Role Ontology_ https://github.com/citation-file-format/citation-file-format/issues/27
@@ -16,132 +43,87 @@
 
 ## Ontologies
 
-|      | Name                                                             | facilitatessoftware | isnested | numberofkeys | isalive   | hasmanyusers |
-| ---  | ---                                                              | ---                 | ---      | ---          | ---       | ---          |
-| 1.   | [CRediT](tax-credit.md)                                          | yes                 | no       | 14           | yes       | yes          |
-| 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                 | yes      | 21 (68)      | no        | no?          |
-| 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                 | yes      | 32 (93)      | yes       | no?          |
-| 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                  | no       | 21           | yes       | yes          |
-| 5.   | [SCoRO](tax-scoro.md)                                            | yes                 | yes      | 4 (43)       | no?       | no           |
-| 6.   | [Habermann](tax-habermann.md)                                    | yes                 | no       | 102          | no        | no           |
-| 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                 | no       | 11           | yes       | no           |
-| 8.   | [schema.org / codemeta](tax-schemaorg-codemeta.md)               | yes / yes           | no       | 0 / 9        | yes / yes | yes / maybe  |
-| 9.   | [Allcontributors](tax-allcontributors.md)                        | yes                 | no       | 33           | yes       | yes          |
-| 10.  | [CrossRef](tax-crossref.md)                                      | no                  | no       | 9            | yes       | yes          |
+|      | Name                                                             | facilitates software | is nested | number of keys | is alive  | has many users |
+| ---  | ---                                                              | ---                  | ---       | ---            | ---       | ---            |
+| 1.   | [CRediT](tax-credit.md)                                          | yes                  | no        | 14             | yes       | yes            |
+| 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                  | yes       | 21 (68)        | no        | no?            |
+| 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                  | yes       | 32 (93)        | yes       | no?            |
+| 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                   | no        | 21             | yes       | yes            |
+| 5.   | [SCoRO](tax-scoro.md)                                            | yes                  | yes       | 4 (43)         | no?       | no             |
+| 6.   | [Habermann](tax-habermann.md)                                    | yes                  | no        | 102            | no        | no             |
+| 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                  | no        | 11             | yes       | no             |
+| 8.   | [schema.org / codemeta](tax-schemaorg-codemeta.md)               | yes / yes            | no        | 0 / 9          | yes / yes | yes / maybe    |
+| 9.   | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
+| 10.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
 
 ## Two potential setups
 
-The table below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0,
+The tables below shows what keys would be needed to map a list of conceptual contributions to CFF v1.3.0,
 
-1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) (column 2), or
-1. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md) (column 3).
+1. assuming CFF uses [Allcontributors terminology](tax-allcontributors.md) for its contributor roles, or
+1. assuming CFF uses [sdruskat.net terminology with recommendations](tax-sdruskatnet.md).
 
-|     | Allcontributors concept                                       | CFF == Allcontributors | CFF == sdruskat.net + recommendations        |
-| --- | ---                                                           | ---                    | ---                                          |
-| 1.  | Audio: ~~Podcasts,~~ background music or sound effects        |  `audio`               | `artwork`                                    |
-| 2.  | Accessibility: Reporting or working on accessibility issues   |  `a11y`                | `other: accessibility`                       |
-| 3.  | Bug reports                                                   |  `bug`                 | `testing`                                    |
-| 4.  | Blogposts                                                     |  `blog`                | `outreach`                                   |
-| 5.  | Business Development: People who execute on the business end  |  `business`            | `funding`? or `other: business development`  |
-| 6.  | Code                                                          |  `code`                | `development`                                |
-| 7.  | Content: e.g. website copy, blog posts are separate           |  `content`             | `other: copywriting, editing`                |
-| 8.  | Data                                                          |  `data`                | `data`                                       |
-| 9.  | Documentation                                                 |  `doc`                 | `documentation`                              |
-| 10. | Design: logo/iconography/visual design/etc.                   |  `design`              | `artwork`                                    |
-| 11. | Examples                                                      |  `example`             | `documentation`                              |
-| 12. | Event Organizers                                              |  `eventOrganizing`     | `outreach`                                   |
-| 13. | Financial Support: for those who provide financial support    |  `financial`           | `funding`                                    |
-| 14. | Funding/Grant Finders: People who help find financial support |  `fundingFinding`      | `funding`                                    |
-| 15. | Ideas & Planning                                              |  `ideas`               | `conceptualization`                          |
-| 16. | Infrastructure: Hosting, Build-Tools, etc.                    |  `infra`               | `infrastructure`                             |
-| 17. | Maintenance: People who help in maintaining the repo          |  `maintenance`         | `development`                                |
-| 18. | Mentoring: People who mentor new contributors                 |  `mentoring`           | `supervision`?                               |
-| 19. | Packaging: Porting to support a new platform                  |  `platform`            | `development`                                |
-| 20. | Plugin/utility libraries                                      |  `plugin`              | `development`                                |
-| 21. | Project Management                                            |  `projectManagement`   | `supervision`                                |
-| 22. | Promotion                                                     |  `promotion`           | `outreach`                                   |
-| 23. | Answering Questions in Issues, Stack Overflow, etc.           |  `question`            | `outreach`                                   |
-| 24. | Research: Literature review                                   |  `research`            | `conceptualization`? or `other: landscaping` |
-| 25. | Reviewed Pull Requests                                        |  `review`              | `development`                                |
-| 26. | Security: security threats, GDPR, Privacy, etc                |  `security`            | `other: security`                            |
-| 27. | Tools                                                         |  `tool`                | `development`?                               |
-| 28. | Translation                                                   |  `translation`         | `outreach`?                                  |
-| 29. | Tests                                                         |  `test`                | `testing`                                    |
-| 30. | Tutorials                                                     |  `tutorial`            | `outreach`                                   |
-| 31. | Talks                                                         |  `talk`                | `outreach`                                   |
-| 32. | User Testing                                                  |  `userTesting`         | `testing`                                    |
-| 33. | Videos                                                        |  `video`               | `artwork`                                    |
+|     | from Allcontributors | sdruskat.net + recommendations               | to Zenodo/DataCite                                                                            | to CodeMeta 3.0                   | to CRediT                   |
+| --- | ---                  | ---                                          | ---                                                                                           | ---                               | ---                         |
+| 1.  | `audio`              | `artwork`                                    | <`Other`                                                                                      | no target                         | no target                   |
+| 2.  | `a11y`               | `other: accessibility`                       | <`Other`                                                                                      | no target                         | no target                   |
+| 3.  | `bug`                | `testing`                                    | <`Other`                                                                                      | no target                         | ~=`Software`?               |
+| 4.  | `blog`               | `outreach`                                   | <`Other`                                                                                      | no target                         | no target                   |
+| 5.  | `business`           | `funding`? or `other: business development`  | <`Other`                                                                                      | no target                         | no target                   |
+| 6.  | `code`               | `development`                                | <`Other`                                                                                      | ==`Coding`                        | ==`Software`                |
+| 7.  | `content`            | `other: copywriting, editing`                | <`Other`                                                                                      | no target                         | no target                   |
+| 8.  | `data`               | `data`                                       | >~~`DataCollector`~~, >~~`DataCurator`~~, ~=`DataManager`                                     | no target                         | ~=`Data Curation`           |
+| 9.  | `doc`                | `documentation`                              | <`Other`                                                                                      | ==`Documentation`                 | no target                   |
+| 10. | `design`             | `artwork`                                    | <`Other`                                                                                      | no target, !=`Design`             | !=`Conceptualization`       |
+| 11. | `example`            | `documentation`                              | <`Other`                                                                                      | <`Documentation`, <`Support`      | no target                   |
+| 12. | `eventOrganizing`    | `outreach`                                   | <`Other`                                                                                      | <`Support`                        | no target                   |
+| 13. | `financial`          | `funding`                                    | ==`Sponsor`                                                                                   | no target                         | no target                   |
+| 14. | `fundingFinding`     | `funding`                                    | <`Other`                                                                                      | <`Management`                     | ==`Funding acquisition`     |
+| 15. | `ideas`              | `conceptualization`                          | <>~~`ProjectLeader`~~, <>~~`ProjectManager`~~, <>~~`WorkPackageLeader`~~, <>~~`Researcher`~~  | <`Architecture`, <`Design`        | ==`Conceptualization`       |
+| 16. | `infra`              | `infrastructure`                             | <>~~`HostingInstitution`~~ >~~`DataManager`~~ <`Other`                                        | no target                         | ==`Resources`               |
+| 17. | `maintenance`        | `development`                                | <`Other`                                                                                      | ==`Maintenance`                   | <`Software`                 |
+| 18. | `mentoring`          | `supervision`?                               | <`ProjectLeader`, <`ProjectManager`, <`Supervisor`, <`WorkPackageLeader`, <`Other`            | no target                         | ~=`Supervision`?            |
+| 19. | `platform`           | `development`                                | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
+| 20. | `plugin`             | `development`                                | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
+| 21. | `projectManagement`  | `supervision`                                | ==`ProjectManager`                                                                            | ==`Management`                    | ~=`Project administration`? |
+| 22. | `promotion`          | `outreach`                                   | <`Other`                                                                                      | no target                         | no target                   |
+| 23. | `question`           | `outreach`                                   | <`Other`                                                                                      | ==`Support`                       | no target                   |
+| 24. | `research`           | `conceptualization`? or `other: landscaping` | <`Researcher`                                                                                 | no target                         | no target                   |
+| 25. | `review`             | `development`                                | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
+| 26. | `security`           | `other: security`                            | <`Other`                                                                                      | no target                         | no target                   |
+| 27. | `tool`               | `development`?                               | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
+| 28. | `translation`        | `outreach`?                                  | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
+| 29. | `test`               | `testing`                                    | <`Other`                                                                                      | ==`Testing`                       | <`Software`                 |
+| 30. | `tutorial`           | `outreach`                                   | <`Other`                                                                                      | <`Documentation`, <`Support`      | no target                   |
+| 31. | `talk`               | `outreach`                                   | <`Other`                                                                                      | no target                         | no target                   |
+| 32. | `userTesting`        | `testing`                                    | <`Other`                                                                                      | <`Testing`?                       | no target                   |
+| 33. | `video`              | `artwork`                                    | <`Other`                                                                                      | no target                         | no target                   |
 
-Notes:
 
-1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project
-1. I crossed out podcasts as part of Allcontributors's definition of `audio`, IMO podcasts are `promotion`
-1. All categories from sdruskat.net are actually used as targets in the mapping
-1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms
-1. One could use the `allcontributors` bot to do its thing; `CONTRIBUTORS.md` would then be the single source of truth about contributors. Then, use a to-be-created tool to sync `CONTRIBUTORS.md` to `CITATION.cff`, maybe based on GitHub aliases? Insert `contributors[i].alias` in CFF using `CONTRIBUTORS.md` when alias is missing from CFF, but don't add names (requires splitting names into name parts, an unsolvable problem)
+|     | from sdruskat.net with recommendations | to Zenodo/DataCite                                         | to Codemeta 3.0                | to CRediT              |
+| --- | ---                                    | ---                                                        | ---                            | ---                    |
+| 1.  | `artwork`                              | <`Other`                                                   | no target                      | ~=`Visualization`      |
+| 2.  | `conceptualization`                    | <`Other`                                                   | ~=`Design` >~~`Architecture`~~ | ==`Conceptualization`  |
+| 3.  | `data`                                 | ~=`DataManager`, >~~`DataCollector`~~, >~~`DataCurator`~~  | no target                      | ~=`Data Curation`      |
+| 4.  | `development`                          | <`Other`                                                   | ~=`Coding` >~~`Maintenance`~~  | ~=`Software`           |
+| 5.  | `documentation`                        | <`Other`                                                   | ==`Documentation`              | no target              |
+| 6.  | `funding`                              | ==`Sponsor`                                                | <>`Management`?                | >`Funding acquisition` |
+| 7.  | `infrastructure`                       | >~~`HostingInstitution`~~ >~~`DataManager`~~ <`Other`      | no target                      | ==`Resources`          |
+| 8.  | `other`                                | ==`Other`                                                  | no target                      | no target              |
+| 9.  | `outreach`                             | <`Other`                                                   | >~~`Support`~~                 | no target              |
+| 10. | `supervision`                          | >~~`Supervisor`~~                                          | ~=`Management`                 | ==`Supervision`        |
+| 11. | `testing`                              | <`Other`                                                   | ==`Testing`                    | no target              |
 
-### Conversion
-
-- to Apalike: N/A
-- to Bibtex: N/A
-- to CodeMeta 3.0: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
-- to Endnote: N/A
-- to Schema.org: `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
-- to RIS: N/A
-- to Zenodo/DataCite, CodeMeta, CRediT: see below
-
-|     | from Allcontributors                        | to Zenodo/DataCite                                                                            | to CodeMeta 3.0                   | to CRediT                   |
-| --- | ---                                         | ---                                                                                           | ---                               | ---                         |
-| 1.  | `audio`                                     | <`Other`                                                                                      | no target                         | no target                   |
-| 2.  | `a11y`                                      | <`Other`                                                                                      | no target                         | no target                   |
-| 3.  | `bug`                                       | <`Other`                                                                                      | no target                         | ~=`Software`?               |
-| 4.  | `blog`                                      | <`Other`                                                                                      | no target                         | no target                   |
-| 5.  | `business`                                  | <`Other`                                                                                      | no target                         | no target                   |
-| 6.  | `code`                                      | <`Other`                                                                                      | ==`Coding`                        | ==`Software`                |
-| 7.  | `content`                                   | <`Other`                                                                                      | no target                         | no target                   |
-| 8.  | `data`                                      | >~~`DataCollector`~~, >~~`DataCurator`~~, ~=`DataManager`                                     | no target                         | ~=`Data Curation`           |
-| 9.  | `doc`                                       | <`Other`                                                                                      | ==`Documentation`                 | no target                   |
-| 10. | `design`                                    | <`Other`                                                                                      | no target, !=`Design`             | !=`Conceptualization`       |
-| 11. | `example`                                   | <`Other`                                                                                      | <`Documentation`, <`Support`      | no target                   |
-| 12. | `eventOrganizing`                           | <`Other`                                                                                      | <`Support`                        | no target                   |
-| 13. | `financial`                                 | ==`Sponsor`                                                                                   | no target                         | no target                   |
-| 14. | `fundingFinding`                            | <`Other`                                                                                      | <`Management`                     | ==`Funding acquisition`     |
-| 15. | `ideas`                                     | <>~~`ProjectLeader`~~, <>~~`ProjectManager`~~, <>~~`WorkPackageLeader`~~, <>~~`Researcher`~~  | <`Architecture`, <`Design`        | ==`Conceptualization`       |
-| 16. | `infra`                                     | <>~~`HostingInstitution`~~ >~~`DataManager`~~ <`Other`                                        | no target                         | ==`Resources`               |
-| 17. | `maintenance`                               | <`Other`                                                                                      | ==`Maintenance`                   | <`Software`                 |
-| 18. | `mentoring`                                 | <`ProjectLeader`, <`ProjectManager`, <`Supervisor`, <`WorkPackageLeader`, <`Other`            | no target                         | ~=`Supervision`?            |
-| 19. | `platform`                                  | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
-| 20. | `plugin`                                    | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
-| 21. | `projectManagement`                         | ==`ProjectManager`                                                                            | ==`Management`                    | ~=`Project administration`? |
-| 22. | `promotion`                                 | <`Other`                                                                                      | no target                         | no target                   |
-| 23. | `question`                                  | <`Other`                                                                                      | ==`Support`                       | no target                   |
-| 24. | `research`                                  | <`Researcher`                                                                                 | no target                         | no target                   |
-| 25. | `review`                                    | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
-| 26. | `security`                                  | <`Other`                                                                                      | no target                         | no target                   |
-| 27. | `tool`                                      | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
-| 28. | `translation`                               | <`Other`                                                                                      | <`Coding`                         | <`Software`                 |
-| 29. | `test`                                      | <`Other`                                                                                      | ==`Testing`                       | <`Software`                 |
-| 30. | `tutorial`                                  | <`Other`                                                                                      | <`Documentation`, <`Support`      | no target                   |
-| 31. | `talk`                                      | <`Other`                                                                                      | no target                         | no target                   |
-| 32. | `userTesting`                               | <`Other`                                                                                      | <`Testing`?                       | no target                   |
-| 33. | `video`                                     | <`Other`                                                                                      | no target                         | no target                   |
-|     | `-----------------`                         | `------------------`                                                                          | `------------`                    | `------------`              |
-|     | **from sdruskat.net with recommendations**  | **to Zenodo/DataCite**                                                                        | **to Codemeta 3.0**               | **to CRediT**               |
-| 1.  | `artwork`                                   | <`Other`                                                                                      | no target                         | ~=`Visualization`           |
-| 2.  | `conceptualization`                         | <`Other`                                                                                      | ~=`Design` >~~`Architecture`~~    | ==`Conceptualization`       |
-| 3.  | `data`                                      | ~=`DataManager`, >~~`DataCollector`~~, >~~`DataCurator`~~                                     | no target                         | ~=`Data Curation`           |
-| 4.  | `development`                               | <`Other`                                                                                      | ~=`Coding` >~~`Maintenance`~~     | ~=`Software`                |
-| 5.  | `documentation`                             | <`Other`                                                                                      | ==`Documentation`                 | no target                   |
-| 6.  | `funding`                                   | ==`Sponsor`                                                                                   | <>`Management`?                   | >`Funding acquisition`      |
-| 7.  | `infrastructure`                            | >~~`HostingInstitution`~~ >~~`DataManager`~~ <`Other`                                         | no target                         | ==`Resources`               |
-| 8.  | `other`                                     | ==`Other`                                                                                     | no target                         | no target                   |
-| 9.  | `outreach`                                  | <`Other`                                                                                      | >~~`Support`~~                    | no target                   |
-| 10. | `supervision`                               | >~~`Supervisor`~~                                                                             | ~=`Management`                    | ==`Supervision`             |
-| 11. | `testing`                                   | <`Other`                                                                                      | ==`Testing`                       | no target                   |
 
 Notes:
 
-1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful term. So in our decision making, Zenodo/DataCite schema terms can be safely ignored -- whatever we come up with maps to Zenodo/DataCite's `Other` term regardless.
+1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list.
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. For converting from sdruskat.net to Zenodo/DataCite, that basically leaves only `Other`, which isn't a meaningful term. So in our decision making, perhaps Zenodo/DataCite schema terms can be ignored -- whatever we come up with likely maps to Zenodo/DataCite's `Other` term regardless.
+1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project.
+1. One could use the `allcontributors` bot to do its thing; `CONTRIBUTORS.md` would then be the single source of truth about contributors. Then, use a to-be-created tool to sync `CONTRIBUTORS.md` to `CITATION.cff`, maybe based on GitHub aliases? Insert `contributors[i].alias` in CFF using `CONTRIBUTORS.md` when alias is missing from CFF, but don't add names (requires splitting names into name parts, an unsolvable problem).
+1. For CodeMeta, `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
+1. For schema.org, `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
+1. for Apalike, Bibtex, Endnote, RIS, contributors are irrelevant.
 
 ### Preliminary `roles` schema
 
@@ -204,31 +186,5 @@ Notes:
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. There is talk of supporting CRediT in pkp-lib, https://github.com/pkp/pkp-lib, a library shared by Open Journal Systems (OJS), Open Conference Systems (OCS), Open Monograph Press (OMP), Open Preprint Systems (OPS) and Open Harvester Systems (OHS). https://github.com/pkp/pkp-lib/issues/857
 1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
+1. Should authors have the same roles as contributors? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
-1. Should authors have the same roles as contributors?
-
-
-## What problem are we trying to solve?
-
-In current practice, repository owners
-
-1. gift authorship to contributors even when the contribution is insignificant, simply because there is no other mechanism to give thanks.
-2. omit their contributors entirely, thus giving the impression that only they should be credited with the perceived benefits of the software.
-
-These two problems are easily solved by updating Citation File Format's schema such that the existing key `authors` gets a new branch `contributors`, where `contributors` has the same subschema as `authors`. With the updated format, repository owners would then be able to give credit to their contributors, without being forced to give out authorships in doing so.
-
-- Fixes https://github.com/citation-file-format/citation-file-format/issues/66
-
-## Who or what would consume metadata on roles?
-
-I see the following use cases:
-
-1. Ingest CFF directly
-2. Ingest CFF after conversion
-3. Human consumption
-
-Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
-
-Maybe in the future, places like LinkedIn, Monsterboard, Indeed and/or headhunters and/or general advertisement agencies (Microsoft/GitHub) can harvest the contributor role metadata from CITATION.cff to build more accurate profiles.
-
-So with that said, is the purpose of differentiating various roles "just" readability for humans, at least for now?

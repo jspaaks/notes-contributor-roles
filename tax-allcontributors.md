@@ -36,3 +36,7 @@
 31. `talk`
 32. `userTesting`
 33. `video`
+
+Notes:
+
+1. I think podcasts should not be part of Allcontributors's definition of `audio`, IMO podcasts are `promotion`.
