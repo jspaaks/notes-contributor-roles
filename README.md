@@ -52,9 +52,11 @@ So with that said, is the purpose of differentiating various roles "just" readab
 | 5.   | [SCoRO](tax-scoro.md)                                            | yes                  | yes       | 4 (43)         | no?       | no             |
 | 6.   | [Habermann](tax-habermann.md)                                    | yes                  | no        | 102            | no        | no             |
 | 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                  | no        | 11             | yes       | no             |
-| 8.   | [schema.org / codemeta](tax-schemaorg-codemeta.md)               | yes / yes            | no        | 0 / 9          | yes / yes | yes / maybe    |
-| 9.   | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
-| 10.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
+| 8.   | [schema.org](tax-schemaorg-codemeta.md)                          | yes                  | no        | 0              | yes       | yes            |
+| 9.   | [codemeta](tax-schemaorg-codemeta.md)                            | yes                  | no        | 9              | yes       | maybe          |
+| 10.  | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
+| 11.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
+| 12.  | [ORCID](tax-orcid.md)                                            |                      |           |                |           |                |
 
 ## Two potential setups
 
