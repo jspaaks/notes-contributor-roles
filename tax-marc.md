@@ -1,7 +1,7 @@
 # MARC relator codes
 
 - Used/defined by US Library of Congress
-- https://www.loc.gov/marc/relators/relaterm.html
+- https://id.loc.gov/vocabulary/relators.html
 - Used by R language https://journal.r-project.org/articles/RJ-2012-009/
 
 All MARC codes are technically supported but at least in the R community the recommended practice is to use one of:
