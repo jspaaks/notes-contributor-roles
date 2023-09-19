@@ -176,7 +176,7 @@ Notes:
 
 ## Loose ends
 
-1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
+1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT. Big downside: CRediT is not very well suited for describing software contributions though.
 1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
 1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
