@@ -45,16 +45,18 @@ So with that said, is the purpose of differentiating various roles "just" readab
 
 |      | Name                                                             | facilitates software | is nested | number of keys | is alive  | has many users |
 | ---  | ---                                                              | ---                  | ---       | ---            | ---       | ---            |
-| 1.   | [CRediT](tax-credit.md)                                          | yes                  | no        | 14             | yes       | yes            |
+| 1.   | [CRediT](tax-credit.md)                                          | meh                  | no        | 14             | yes       | yes            |
 | 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                  | yes       | 21 (68)        | no        | no?            |
 | 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                  | yes       | 32 (93)        | yes       | no?            |
 | 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                   | no        | 21             | yes       | yes            |
 | 5.   | [SCoRO](tax-scoro.md)                                            | yes                  | yes       | 4 (43)         | no?       | no             |
 | 6.   | [Habermann](tax-habermann.md)                                    | yes                  | no        | 102            | no        | no             |
 | 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                  | no        | 11             | yes       | no             |
-| 8.   | [schema.org / codemeta](tax-schemaorg-codemeta.md)               | yes / yes            | no        | 0 / 9          | yes / yes | yes / maybe    |
-| 9.   | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
-| 10.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
+| 8.   | [schema.org](tax-schemaorg-codemeta.md)                          | yes                  | no        | 0              | yes       | yes            |
+| 9.   | [codemeta](tax-schemaorg-codemeta.md)                            | yes                  | no        | 9              | yes       | maybe          |
+| 10.  | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
+| 11.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
+| 12.  | [ORCID](tax-orcid.md)                                            | meh                  | no        | 25             | yes       | yes            |
 
 ## Two potential setups
 
@@ -117,6 +119,7 @@ The tables below show how CFF 1.3.0 keys would map onto other taxonomies
 
 Notes:
 
+1. The second table doesn't need an Allcontributors column, because I can't see any reason to use Allcontributors as a target, only as a source
 1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list. Maybe the problem goes away if you interpret those "important" roles as author roles?
 1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. In our decision making, perhaps Zenodo/DataCite schema terms should be ignored -- whatever the source key, it will likely map to Zenodo/DataCite's `Other` term regardless.
 1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project.
