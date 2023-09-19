@@ -172,13 +172,11 @@ Notes:
 
 ## Loose ends
 
-1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
 1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
 1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
-1. contributor attribution model as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html. Their example uses Contributor Role Ontology: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html#data-examples
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-1. Stephan's list is high abstraction; many conversion targets are lower-abstraction. This means that conversion is impossible unless you choose to pick one lower abstraction that is covered by CFF's higher abstraction, or you map to all lower abstractions that fit. Both approaches change the meaning of the original data. For example, CFF may have (only) "Data" role while Zenodo/DataCite has "DataCollector", "DataCurator", and "DataManager". It is impossible to accurately convert between them despite the fact that they seem so similar.
 1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
 1. Should authors have the same roles as contributors? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
+1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#

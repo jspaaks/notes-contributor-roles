@@ -3,6 +3,7 @@
 - GitHub repository: https://github.com/data2health/contributor-role-ontology/
 - Extends CASRAI Contributor Roles Taxonomy (CRediT) https://casrai.org/credit/
 - Replaces OpenRIF's Contribution Ontology https://github.com/openrif/contribution-ontology
+- Part of the Contributor Attribution Model (CAM) as used by the Center for Data to Health: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html. Their example uses Contributor Role Ontology: https://contributor-attribution-model.readthedocs.io/en/latest/introduction.html#data-examples
 
 https://ontobee.org/ontology/catalog/CRO?iri=http://purl.obolibrary.org/obo/CRO_0000000 defines the following roles (some roles expand into more detailed descriptors):
 
