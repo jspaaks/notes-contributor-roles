@@ -45,7 +45,7 @@ So with that said, is the purpose of differentiating various roles "just" readab
 
 |      | Name                                                             | facilitates software | is nested | number of keys | is alive  | has many users |
 | ---  | ---                                                              | ---                  | ---       | ---            | ---       | ---            |
-| 1.   | [CRediT](tax-credit.md)                                          | yes                  | no        | 14             | yes       | yes            |
+| 1.   | [CRediT](tax-credit.md)                                          | meh                  | no        | 14             | yes       | yes            |
 | 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                  | yes       | 21 (68)        | no        | no?            |
 | 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                  | yes       | 32 (93)        | yes       | no?            |
 | 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                   | no        | 21             | yes       | yes            |
@@ -56,7 +56,7 @@ So with that said, is the purpose of differentiating various roles "just" readab
 | 9.   | [codemeta](tax-schemaorg-codemeta.md)                            | yes                  | no        | 9              | yes       | maybe          |
 | 10.  | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
 | 11.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
-| 12.  | [ORCID](tax-orcid.md)                                            |                      |           |                |           |                |
+| 12.  | [ORCID](tax-orcid.md)                                            | meh                  | no        | 25             | yes       | yes            |
 
 ## Two potential setups
 
