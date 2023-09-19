@@ -117,6 +117,7 @@ The tables below show how CFF 1.3.0 keys would map onto other taxonomies
 
 Notes:
 
+1. The second table doesn't need an Allcontributors column, because I can't see any reason to use Allcontributors as a target, only as a source
 1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list. Maybe the problem goes away if you interpret those "important" roles as author roles?
 1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. In our decision making, perhaps Zenodo/DataCite schema terms should be ignored -- whatever the source key, it will likely map to Zenodo/DataCite's `Other` term regardless.
 1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project.
