@@ -2,6 +2,7 @@
 
 - Big pro: this is based on actual experience using it in many projects
 - Open question: do these keys sufficiently cover contributions as they are valued in academia?
+- https://allcontributors.org/docs/en/emoji-key defines the following:
 
 1. `audio`
 2. `a11y`
