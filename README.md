@@ -57,6 +57,7 @@ So with that said, is the purpose of differentiating various roles "just" readab
 | 10.  | [Allcontributors](tax-allcontributors.md)                        | yes                  | no        | 33             | yes       | yes            |
 | 11.  | [CrossRef](tax-crossref.md)                                      | no                   | no        | 9              | yes       | yes            |
 | 12.  | [ORCID](tax-orcid.md)                                            | meh                  | no        | 25             | yes       | yes            |
+| 13.  | [MARC](tax-marc.md)                                              | yes                  | no        | 7              | yes       | yes            |
 
 ## Two potential setups
 
@@ -178,7 +179,6 @@ Notes:
 1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT.
 1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
 1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-1. R citation roles https://journal.r-project.org/articles/RJ-2012-009/ / MARC relator codes https://www.loc.gov/marc/relators/relaterm.html
 1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
 1. Should authors have the same roles as contributors? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
