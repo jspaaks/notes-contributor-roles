@@ -136,4 +136,3 @@ Notes:
 ## Loose ends
 
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
-1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
