@@ -46,10 +46,10 @@ So with that said, is the purpose of differentiating various roles "just" readab
 |      | Name                                                             | facilitates software | is nested | number of keys | is alive  | has many users |
 | ---  | ---                                                              | ---                  | ---       | ---            | ---       | ---            |
 | 1.   | [CRediT](tax-credit.md)                                          | meh                  | no        | 14             | yes       | yes            |
-| 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                  | yes       | 21 (68)        | no        | no?            |
-| 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                  | yes       | 32 (93)        | yes       | no?            |
+| 2.   | [Contribution Ontology](tax-contribution-ontology.md)            | yes                  | yes       | 21 (+68)       | no        | no?            |
+| 3.   | [Contributor Role Ontology](tax-contributor-role-ontology.md)    | yes                  | yes       | 32 (+93)       | yes       | no?            |
 | 4.   | [Zenodo/DataCite](tax-zenodo-datacite.md)                        | no                   | no        | 21             | yes       | yes            |
-| 5.   | [SCoRO](tax-scoro.md)                                            | yes                  | yes       | 4 (43)         | no?       | no             |
+| 5.   | [SCoRO](tax-scoro.md)                                            | yes                  | yes       | 4 (+43)        | no?       | no             |
 | 6.   | [Habermann](tax-habermann.md)                                    | yes                  | no        | 102            | no        | no             |
 | 7.   | [sdruskat.net](tax-sdruskatnet.md)                               | yes                  | no        | 11             | yes       | no             |
 | 8.   | [schema.org](tax-schemaorg-codemeta.md)                          | yes                  | no        | 0              | yes       | yes            |
@@ -120,66 +120,20 @@ The tables below show how CFF 1.3.0 keys would map onto other taxonomies
 
 Notes:
 
-1. The second table doesn't need an Allcontributors column, because I can't see any reason to use Allcontributors as a target, only as a source
-1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list. Maybe the problem goes away if you interpret those "important" roles as author roles?
-1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets. In our decision making, perhaps Zenodo/DataCite schema terms should be ignored -- whatever the source key, it will likely map to Zenodo/DataCite's `Other` term regardless.
+1. The second table above doesn't need an Allcontributors column, because I can't see any reason to use Allcontributors as a target, only as a source
+1. Conversion sources that are bigger concepts than the targets cannot be safely converted, hence I've crossed out the targets.
 1. mapping `Allcontributors:design` to `sdruskat.net:conceptualization` would feel like a mismatch; even though a designer conceptualizes something, the (visual) design is not what defines the software project.
-1. One could use the `allcontributors` bot to do its thing; `CONTRIBUTORS.md` would then be the single source of truth about contributors. Then, use a to-be-created tool to sync `CONTRIBUTORS.md` to `CITATION.cff`, maybe based on GitHub aliases? Insert `contributors[i].alias` in CFF using `CONTRIBUTORS.md` when alias is missing from CFF, but don't add names (requires splitting names into name parts, an unsolvable problem).
 1. For CodeMeta, `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited unless people choose to observe the implicit rule about `roleName` being an enum.
 1. For schema.org, `Role` and `roleName` allow you to write down the exact role name without the need for conversion, but consumption by machines is limited.
 1. for Apalike, Bibtex, Endnote, RIS, contributors are irrelevant.
 
-### Preliminary `roles` schema
+## About using Allcontributors as a source
 
-The file [schema.json](schema.json) describes how to update CFF's JSONSchema file for version 1.3.0. I wrote it for the [enum from sdruskat.net + recommendations](tax-sdruskatnet.md), but it would conceptually be the same for any given `enum`. Combine some online resources to try it out interactively:
-
-1. JSONschema validator [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/)
-1. converting YAML to JSON here [https://onlineyamltools.com/convert-yaml-to-json](https://onlineyamltools.com/convert-yaml-to-json)
-1. converting JSON to YAML https://www.json2yaml.com/
-
-```yaml
-# a contributor with one role, as array of string with one element
-roles:
-- conceptualization
-```
-
-```yaml
-# a contributor with multiple roles, as array of string
-roles:
-- supervision
-- artwork
-- conceptualization
-```
-
-```yaml
-# contributor with multiple roles, as mixed array of
-# string and key-value pair, with free text added
-# to explain
-roles:
-- supervision
-- artwork: drawings
-- conceptualization: description of conceptualization
-    # "conceptualization" is a key in a dict of length 1
-```
-
-```yaml
-# contributor with a role that doesn't fit the existing
-# role names, according to the metadata author
-roles:
-- other: description of the other activity
-```
-
-Notes:
-
-1. Some folks have advocated for having a free text field as CFF contributor role. This would not be useful for downstream usage, consumption by machines, and could hamper automatic validation of the contributor roles. But if we do it like I wrote in the schema file, you can have an element from an `enum`, or a `dict` key with an explanation. In YAML/CFF, this looks pretty clean.
-1. The advantage of including an optional description is we can see if people need more roles / how they interpret existing role names.
+1. Concepts such as "design", "architecture", and "conceptualization" are some of the most valued/prestigious categories for researchers, but they are not well represented in Allcontributors terms (`ideas`, ?). See SCoRo's "intellectual" roles for a better list. Maybe the problem goes away if you interpret those "important" roles as author roles?
+1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
+1. Should `authors` have the same roles as `contributors`? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 
 ## Loose ends
 
-1. if we choose CFF contributor role descriptors that map to CRediT roles, they can be used immeditately with no updates required on the publisher side. This will be a huge benefit for adoption. The easiest way to define CFF contributor roles that map to CRediT roles is to use terms in CFF that are exactly equal to what's used in CRediT. Big downside: CRediT is not very well suited for describing software contributions though.
-1. TODO: Look into mapping CRediT roles to Zenodo/DataCite metadata roles
-1. How well do the longer ontologies (Contributor Role Ontology, SCoRO, Habermann) map onto Stephan's ontology, and do we care about the items that do not map well?
-1. Should we add `roles` to `authors` as well? Given that the `CITATION.cff` is assumed to describe the software (not a paper about the software), the difference between `authors` and `contributors` is only about the substantiveness of their contribution, not about the type of contribution. I guess it also means that a taxonomy enum key for "writing the paper" should go unused.
-1. Should authors have the same roles as contributors? If not, how about using CRediT for `authors` and Allcontributors for `contributors`?
 1. Accountability in Research paper https://www.tandfonline.com/doi/pdf/10.1080/08989621.2020.1779591
 1. https://demo.hedgedoc.org/WWA2OwbbSeiVXkTkLSwadA#
