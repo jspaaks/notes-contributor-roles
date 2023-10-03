@@ -21,7 +21,7 @@ I see the following use cases:
 2. Ingest CFF after conversion
 3. Human consumption
 
-Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions, so it doesn't really matter what we choose. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
+Some existing direct consumers that I can think of are Zotero, JabRef, GitHub/ruby-cff, Zenodo, and cffconvert. Zotero and JabRef would not make use of a contributor role AFAIK and neither would GitHub/ruby-cff; Zenodo would use the author/contributor differentiation, but Zenodo's (DataCite's) support for contributor roles isn't good when it comes to decribing software contributions, so for our intents and purposes, we can treat Zenodo/DataCite as if they don't have roles at all. `cffconvert` would be able to use contributors, including roles, provided that the target format allows conversion (generally such conversions aren't great).
 
 Maybe in the future, places like LinkedIn, Monsterboard, Indeed and/or headhunters and/or general advertisement agencies (Microsoft/GitHub) can harvest the contributor role metadata from CITATION.cff to build more accurate profiles.
 
